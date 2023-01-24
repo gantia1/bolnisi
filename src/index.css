@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "Helvetica Neue MT 55Roman";
+  src: local("HelvecaNeue"),
+  url("./assets/fonts/HelveticaNeueLTGEO-MT-55Roman.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT 75Bold";
+  src: local("HelvecaNeue"),
+  url("./assets/fonts/HelveticaNeueLTGEO-75Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT 65Roman";
+  src: local("HelvecaNeue"),
+  url("./assets/fonts/Helvetica-Neue-LT-Com-65-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT 65Roman";
+  src: local("HelvecaNeue"),
+  url("./assets/fonts/Helvetica-Neue-LT-Com-65-Medium.ttf") format("truetype");
+}
+
