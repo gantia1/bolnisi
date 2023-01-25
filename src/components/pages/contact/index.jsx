@@ -13,13 +13,18 @@ import ContactCard from "../../../assets/images/png/contact-card.png";
 import ContactCardSecond from "../../../assets/images/png/contact-card-2.png";
 import ContactCardThird from "../../../assets/images/png/contact-card-3.png";
 import {ReactComponent as LeftLeaf} from "../../../assets/images/svg/bottom-right-leaf.svg";
-import React from "react";
+import React, {useState} from "react";
+import SuccessPopup from "../../success-popup";
 
 
 function Index() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
     const contacts = [
         {
-            id: "1",
+            id: 1,
             image: ContactCard,
             name: "მარიამ ჩიხლაძე",
             position: "შესყიდვები",
@@ -28,7 +33,7 @@ function Index() {
         },
         {
 
-            id: "2",
+            id: 2,
             image: ContactCardSecond,
             name: "გიორგი დათებაშვილი",
             position: "ფინანსური დეპარტამენტი",
@@ -36,7 +41,7 @@ function Index() {
             mail: "gdatebashvili@acb.ge",
         },
         {
-            id: "3",
+            id: 3,
             image: ContactCardThird,
             name: "გურამ აბრამია",
             position: "იურიდიული დეპარტამენტი",
@@ -153,7 +158,7 @@ function Index() {
                             </Form.Item>
 
                             <Form.Item>
-                                <button className="contact-form-button">
+                                <button className="contact-form-button" onClick={showModal}>
                                     გაგზავნა
                                 </button>
                             </Form.Item>
@@ -273,7 +278,7 @@ function Index() {
                             </Form.Item>
 
                             <Form.Item>
-                                <button className="contact-form-button">
+                                <button className="contact-form-button" onClick={showModal}>
                                     გაგზავნა
                                 </button>
                             </Form.Item>
@@ -284,14 +289,14 @@ function Index() {
                 </div>
             </div>
             <div>
-                <iframe
-                    className={'google-map'}
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47848.86524504503!2d44.51747001359763!3d41.448896490047964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4043e8ce6b502255%3A0x74dd03abe927bd76!2sBolnisi!5e0!3m2!1sen!2sge!4v1672312636844!5m2!1sen!2sge"
-                    allowFullScreen="" loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade">
-
+                <iframe title="bolnisi-map"
+                        className={'google-map'}
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47848.86524504503!2d44.51747001359763!3d41.448896490047964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4043e8ce6b502255%3A0x74dd03abe927bd76!2sBolnisi!5e0!3m2!1sen!2sge!4v1672312636844!5m2!1sen!2sge"
+                        allowFullScreen="" loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
+            <SuccessPopup open={isModalOpen} close={() => setIsModalOpen(false)}/>
         </>
     );
 }
