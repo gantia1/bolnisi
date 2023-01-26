@@ -2215,6 +2215,9 @@ footer {
       vertical-align: bottom;
       rotate: -90deg;
       margin-left: -20px;
+      path {
+        fill: $dark-green;
+      }
     }
   }
 
@@ -2276,6 +2279,11 @@ footer {
       cursor: pointer;
     }
 
+    .store-production-add-svg {
+      transform: translate(20%, 30%);
+
+    }
+
     .add-to-favorites-tooltip {
       visibility: hidden;
       font-family: $font-55-roman;
@@ -2286,8 +2294,8 @@ footer {
       white-space: nowrap;
       z-index: 1;
       border-radius: 24px;
-      top: 0;
-      right: 20px;
+      top: 4px;
+      right: 17px;
       margin-top: 43px;
       opacity: 0;
       transition: opacity 1s;
@@ -2402,7 +2410,6 @@ footer {
 
   .ant-modal-content {
     padding: 0;
-    //border-radius: 100%;
   }
 }
 
@@ -2411,7 +2418,7 @@ footer {
   display: flex;
   justify-content: center;
 
-  .success-popup-content {
+  .success-popup-content, .success-popup-content-connect {
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -2441,7 +2448,7 @@ footer {
 //registration
 .registration-body {
   .ant-modal-content {
-    border-radius: 100%;
+    border-radius: 18px;
   }
 }
 
@@ -2629,6 +2636,11 @@ footer {
           font-size: 12px;
           margin-bottom: 40px;
           cursor: pointer;
+
+          svg {
+            vertical-align: middle;
+            margin-right: 10px;
+          }
         }
 
         .registration-phone-number-button {
@@ -2656,7 +2668,10 @@ footer {
       margin: 25px 15px !important;
       font-size: 16px !important;
       text-align: center !important;
+      padding: 0 !important;
+      font-family: $font-65-roman !important;
     }
+
   }
 }
 
@@ -3373,8 +3388,11 @@ footer {
   }
   .success-popup {
     .success-popup-content {
-      padding: 75px 40px 40px;
-      font-size: 20px;
+      padding: 75px 135px 40px;
+    }
+
+    .success-popup-content-connect {
+      padding: 75px 35px 40px;
     }
 
     .success-popup-text {

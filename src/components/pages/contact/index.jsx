@@ -213,7 +213,7 @@ function Index() {
 
                         <Form className="contact-right-side-form">
                             <Form.Item
-                                name={"name"}
+                                name={"nameMobile"}
 
                                 rules={[
                                     {
@@ -227,7 +227,7 @@ function Index() {
                                 />
                             </Form.Item>
                             <Form.Item
-                                name={"phone-number"}
+                                name={"phone-number-mobile"}
 
                                 rules={[
                                     {
@@ -245,7 +245,7 @@ function Index() {
                             </Form.Item>
 
                             <Form.Item
-                                name={'email'}
+                                name={'emailMobile'}
                             >
                                 <Input
                                     bordered={false}
@@ -254,7 +254,7 @@ function Index() {
                             </Form.Item>
 
                             <Form.Item
-                                name={"subject-matter"}
+                                name={"subject-matter-two"}
 
                                 rules={[
                                     {
@@ -269,7 +269,7 @@ function Index() {
                             </Form.Item>
 
                             <Form.Item
-                                name="description"
+                                name="description-mobile"
                             >
                                 <TextArea rows={4}
                                           bordered={false}

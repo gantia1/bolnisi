@@ -6,7 +6,7 @@ function Index(props) {
         <Modal className="success-popup" open={props.open} onCancel={props.close} footer={false} closable={false}>
 
             <div className="success-popup">
-                <div className="success-popup-content">
+                <div className="success-popup-content-connect">
                     <div className="success-popup-svg"></div>
                     <div className="success-popup-text">
                         <span><Success/></span>

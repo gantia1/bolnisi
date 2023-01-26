@@ -5,56 +5,75 @@ import salesImage from "../../../assets/images/png/offers-img.png";
 import {ReactComponent as Add} from "../../../assets/images/svg/shopping-1.svg";
 import {ReactComponent as Percent} from "../../../assets/images/svg/percentw.svg";
 import {ReactComponent as CardHover} from "../../../assets/images/svg/card-hover.svg";
-import {useState} from "react";
+import {ReactComponent as Favorite} from "../../../assets/images/svg/favorite.svg";
+import {ReactComponent as AddFavorite} from "../../../assets/images/svg/add-favorite.svg";
+import {useEffect, useState} from "react";
+
+const sales = [
+    {
+        id: 1,
+        image: salesImage,
+        title: "ზედამო",
+        text: "წითელი ღვინო ნატურალური საფერავი..",
+        price: "24₾",
+        sale: "32₾",
+    },
+    {
+        id: 2,
+        image: salesImage,
+        title: "მარბანი",
+        text: "თეთრი ღვინო რქაწითელი 2020…",
+        price: "32₾",
+        sale: "36₾",
+    },
+    {
+        id: 3,
+        image: salesImage,
+        title: "ლუკას მარანი",
+        text: "რქაწითელი ექიმის ნატურალური ღვინო",
+        price: "18₾",
+        sale: "23₾",
+    },
+    {
+        id: 4,
+        image: salesImage,
+        title: "ზედამო",
+        text: "წითელი ღვინო ნატურალური საფერავი..",
+        price: "24₾",
+        sale: "32₾",
+    },
+    {
+        id: 5,
+        image: salesImage,
+        title: "მარბანი",
+        text: "თეთრი ღვინო რქაწითელი 2020…",
+        price: "32₾",
+        sale: "36₾",
+    },
+];
 
 function Index() {
     const [subMenu, setSubMenu] = useState(1);
+    const [favorites, setFavorites] = useState([]);
+
+    useEffect(() => {
+        setFavorites(sales);
+    }, []);
+
+
+    function handleFavorite(id) {
+        const newFavorites = favorites.map(sale => {
+            return sale.id === id ? {...sale, favorite: !sale.favorite} : sale;
+        });
+        setFavorites(newFavorites);
+    }
+
 
     const handleClick = (id) => {
         setSubMenu(id)
     };
-    const sales = [
-        {
-            id: 1,
-            image: salesImage,
-            title: "ზედამო",
-            text: "წითელი ღვინო ნატურალური საფერავი..",
-            price: "24₾",
-            sale: "32₾",
-        },
-        {
-            id: 2,
-            image: salesImage,
-            title: "მარბანი",
-            text: "თეთრი ღვინო რქაწითელი 2020…",
-            price: "32₾",
-            sale: "36₾",
-        },
-        {
-            id: 3,
-            image: salesImage,
-            title: "ლუკას მარანი",
-            text: "რქაწითელი ექიმის ნატურალური ღვინო",
-            price: "18₾",
-            sale: "23₾",
-        },
-        {
-            id: 4,
-            image: salesImage,
-            title: "ზედამო",
-            text: "წითელი ღვინო ნატურალური საფერავი..",
-            price: "24₾",
-            sale: "32₾",
-        },
-        {
-            id: 5,
-            image: salesImage,
-            title: "მარბანი",
-            text: "თეთრი ღვინო რქაწითელი 2020…",
-            price: "32₾",
-            sale: "36₾",
-        },
-    ]
+
+
     return (
         <>
             <Slider/>
@@ -137,7 +156,7 @@ function Index() {
                     <span><Arrow/></span>
                 </div>
                 <div className="store-production-cards">
-                    {sales.map((sale) => (
+                    {favorites.map((sale,) => (
                         <div
                             key={sale.id}
                             className="store-production-card"
@@ -151,7 +170,23 @@ function Index() {
                                     <CardHover/>
                                 </div>
                                 <div className="store-production-add-to-favorites">
-                                    <span className="add-to-favorites-tooltip">რჩეულებში დამატება</span>
+                                    <div className="store-production-add-svg">
+                                        <span
+                                            onClick={() => {
+                                                handleFavorite(sale.id);
+                                            }}
+                                        >
+                                          {sale.favorite === true ? <Favorite/> : <AddFavorite/>}
+                                        </span>
+                                    </div>
+
+                                    {sale.favorite === true ? (
+                                        <span className="add-to-favorites-tooltip">რჩეულებიდან წაშლა</span>
+
+                                    ) : (
+                                        <span className="add-to-favorites-tooltip">რჩეულებში დამატება</span>
+                                    )}
+
                                 </div>
 
                             </div>
@@ -302,7 +337,16 @@ function Index() {
                         </div>
                     ))}
                 </div>
+                <div className="store-production-cards-title">
+                    <span>ფავორიტები</span>
+                </div>
+                <ul>
+                    {favorites.map(sale =>
+                        sale.favorite === true ? <li key={sale.id}>{sale.text}{sale.price}</li> : null
+                    )}
+                </ul>
             </div>
+
         </>
     );
 }
