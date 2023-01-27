@@ -1718,7 +1718,7 @@ footer {
 
     .about-us-structure-cards {
       display: grid;
-      grid-template-columns: repeat(3, minmax(auto, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: 16px;
       position: relative;
 
@@ -1770,7 +1770,7 @@ footer {
 
   .about-us-values-cards {
     display: grid;
-    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     row-gap: 55px;
     column-gap: 75px;
     margin: 55px 0 150px;
@@ -3199,7 +3199,7 @@ footer {
     }
 
     .news-date-search {
-      .news-start-date {
+      .news-start-date-ka, news-start-date-en, news-start-date-ru {
         display: none;
       }
 
@@ -3247,7 +3247,7 @@ footer {
         }
       }
 
-      .news-end-date {
+      .news-end-date-ka, .news-start-date-en, .news-start-date-ru {
         display: none;
       }
     }
@@ -3577,7 +3577,7 @@ footer {
 
     .about-us-structure {
       .about-us-structure-cards {
-        grid-template-columns: repeat(1, minmax(auto, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
         gap: 23px;
 
         .about-us-structure-card {
@@ -3588,8 +3588,9 @@ footer {
     }
 
     .about-us-values-cards {
-      grid-template-columns: repeat(1, minmax(auto, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
       row-gap: 30px;
+      column-gap: 100px;
       margin: 30px 0 70px;
 
       .about-us-values-card {
