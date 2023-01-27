@@ -15,10 +15,12 @@ import ContactCardThird from "../../../assets/images/png/contact-card-3.png";
 import {ReactComponent as LeftLeaf} from "../../../assets/images/svg/bottom-right-leaf.svg";
 import React, {useState} from "react";
 import SuccessPopup from "../../success-popup";
+import translation from "../../../language/useTranslation";
 
 
 function Index() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const {trans} = translation();
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -61,8 +63,8 @@ function Index() {
                         </div>
                         <div className="contact-info">
                             <ul>
-                                <li><strong>საკონტაქტო ინფორმაცია</strong></li>
-                                <li>დავით აღმაშენებლის 13ა, ბოლნისი, საქართველო</li>
+                                <li><strong>{trans("contactInfo")}</strong></li>
+                                <li>{trans("address")}</li>
                                 <a href="tel:+995551250026">
 
                                     <li><Call/>+995 551 25 00 26</li>
@@ -84,7 +86,7 @@ function Index() {
                     <div className="contact-right-side">
 
                         <div className="contact-right-side-title">
-                            <span>დაგვიკავშირდით</span>
+                            <span>{trans("contactUs")}</span>
                         </div>
 
                         <div className="contact-right-leaf">
@@ -103,7 +105,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder="სახელი და გვარი*"
+                                    placeholder={trans("nameLastname")}
                                 />
                             </Form.Item>
                             <Form.Item
@@ -117,7 +119,7 @@ function Index() {
                                 ]}>
                                 <InputNumber
                                     bordered={false}
-                                    placeholder="ტელ.ნომერი*"
+                                    placeholder={trans("phoneNumber")}
                                     style={{
                                         width: '100%',
                                     }}
@@ -129,7 +131,7 @@ function Index() {
                             >
                                 <Input
                                     bordered={false}
-                                    placeholder="ელ.ფოსტა"
+                                    placeholder={trans("email")}
                                 />
                             </Form.Item>
 
@@ -144,7 +146,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder="თემატიკა*"
+                                    placeholder={trans("subjectMatter")}
                                 />
                             </Form.Item>
 
@@ -153,13 +155,13 @@ function Index() {
                             >
                                 <TextArea rows={4}
                                           bordered={false}
-                                          placeholder="შეტყობინება"
+                                          placeholder={trans("message")}
                                 />
                             </Form.Item>
 
                             <Form.Item>
                                 <button className="contact-form-button" onClick={showModal}>
-                                    გაგზავნა
+                                    {trans("send")}
                                 </button>
                             </Form.Item>
                         </Form>
@@ -169,7 +171,7 @@ function Index() {
                 </div>
 
                 <div className="contact-cards-title">
-                    <span>საკონტაქტო პირები</span>
+                    <span>{trans("contactInfo")}</span>
                 </div>
 
                 <div className="contact-cards">
@@ -223,7 +225,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder="სახელი და გვარი*"
+                                    placeholder={trans("nameLastname")}
                                 />
                             </Form.Item>
                             <Form.Item
@@ -237,7 +239,7 @@ function Index() {
                                 ]}>
                                 <InputNumber
                                     bordered={false}
-                                    placeholder="ტელ.ნომერი*"
+                                    placeholder={trans("phoneNumber")}
                                     style={{
                                         width: '100%',
                                     }}
@@ -249,12 +251,12 @@ function Index() {
                             >
                                 <Input
                                     bordered={false}
-                                    placeholder="ელ.ფოსტა"
+                                    placeholder={trans("email")}
                                 />
                             </Form.Item>
 
                             <Form.Item
-                                name={"subject-matter-two"}
+                                name={"subject-matter-mobile"}
 
                                 rules={[
                                     {
@@ -264,7 +266,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder="თემატიკა*"
+                                    placeholder={trans("subjectMatter")}
                                 />
                             </Form.Item>
 
@@ -273,13 +275,13 @@ function Index() {
                             >
                                 <TextArea rows={4}
                                           bordered={false}
-                                          placeholder="შეტყობინება"
+                                          placeholder={trans("message")}
                                 />
                             </Form.Item>
 
                             <Form.Item>
                                 <button className="contact-form-button" onClick={showModal}>
-                                    გაგზავნა
+                                    {trans("send")}
                                 </button>
                             </Form.Item>
                         </Form>

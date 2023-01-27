@@ -9,23 +9,34 @@ import Slider from "../slider";
 import {ReactComponent as HeaderToggle} from "../../assets/images/svg/toggle.svg";
 import {ReactComponent as Store} from "../../assets/images/svg/store.svg";
 import MobileMenu from "../mobile/menu";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import Logo from "../../assets/images/png/menu-logo.png";
 import MenuLogo from "../../assets/images/png/menu-text-img.png";
 import Registration from "../registration";
+import translation from "../../language/useTranslation";
+import {TranslationContext} from "../../contexts/TranslationContext";
+
+const langs = ['ka', 'en', 'ru']
 
 function Index() {
     const location = useLocation();
     const [open, setOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-
+    const {currentLanguage, setCurrentLanguage} = useContext(TranslationContext)
+    const {trans} = translation();
     const showDrawer = () => {
         setOpen(true);
     };
     const showModal = () => {
         setIsModalOpen(true);
     };
+
+    const languages = {
+        ka: <p onClick={() => setCurrentLanguage("ka")}><Ge/> <span> ქართული </span></p>,
+        en: <p onClick={() => setCurrentLanguage("en")}><Ge/> <span> English </span></p>,
+        ru: <p onClick={() => setCurrentLanguage("ru")}><Ge/> <span> Русский</span></p>,
+    }
 
     return (
 
@@ -44,11 +55,14 @@ function Index() {
                     <div className="header-nav-item">
                         <div className="language-selection">
                             <div className="language">
-                                <Link to="#"><Ge/> <span>ქართული</span> <Arrow className="arrow"/></Link>
+                                {languages[currentLanguage]}<Arrow className="arrow"/>
                             </div>
                             <div className="language-dropdown-content">
-                                <Link to="#"><Ge/><span>English</span></Link>
-                                <Link to="#"><Ge/><span>Русский</span></Link>
+                                {langs.map((lang) => {
+                                    if (lang !== currentLanguage) {
+                                        return languages[lang]
+                                    }
+                                })}
                             </div>
                         </div>
                         <div className="header-nav-list">
@@ -57,7 +71,7 @@ function Index() {
                         </div>
                         <Link to="/store">
                             <div className="header-store">
-                                <span><Store/>მაღაზია</span>
+                                <span><Store/>{trans("shop")}</span>
                             </div>
                         </Link>
                     </div>
@@ -68,12 +82,12 @@ function Index() {
                 </div>
                 <div className="pages-menu menu-container font-face-hn">
                     <ul>
-                        <li><NavLink to="/">მთავარი</NavLink></li>
-                        <li><NavLink to="/news">სიახლეები</NavLink></li>
-                        <li><NavLink to="/about-us">ჩვენს შესახებ</NavLink></li>
-                        <li><NavLink to="/municipality">ბოლნისის მუნიციპალიტეტი</NavLink></li>
-                        <li><NavLink to="/terms-conditions">წესები და პირობები</NavLink></li>
-                        <li><NavLink to="/contact">კონტაქტი</NavLink></li>
+                        <li><NavLink to="/">{trans("main")}</NavLink></li>
+                        <li><NavLink to="/news">{trans("news")}</NavLink></li>
+                        <li><NavLink to="/about-us">{trans("aboutUs")}</NavLink></li>
+                        <li><NavLink to="/municipality">{trans("municipality")}</NavLink></li>
+                        <li><NavLink to="/terms-conditions">{trans("termsConditions")}</NavLink></li>
+                        <li><NavLink to="/contact">{trans("contact")}</NavLink></li>
                     </ul>
                 </div>
             </header>

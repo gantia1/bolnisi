@@ -4,12 +4,13 @@ import {ReactComponent as Sms} from "../../assets/images/svg/sms.svg";
 import {ReactComponent as Refresh} from "../../assets/images/svg/refresh.svg";
 import {ReactComponent as Success} from "../../assets/images/svg/success-popup.svg";
 import InputCode from "react-code-input";
+import translation from "../../language/useTranslation";
 
 function Index(props) {
     const [activeTab, setActiveTab] = useState(1);
     const [completedStep, setCompletedStep] = useState(1);
     const [completedStepLegal, setCompletedStepLegal] = useState(1);
-
+    const {trans} = translation();
     const handleClickStep = (id) => {
         setCompletedStep(id);
     };
@@ -46,10 +47,10 @@ function Index(props) {
                             <div className="success-popup-svg"></div>
                             <div className="success-popup-text">
                                 <span><Success/></span>
-                                <span>თქვენ წარმატებით გაიარეთ რეგისტრაცია!</span>
+                                <span>{trans("successRegistration")}</span>
                             </div>
                             <div className="success-popup-button" onClick={() => handleClickClose(1)}>
-                                <span>დახურვა</span></div>
+                                <span>{trans("close")}</span></div>
                         </div>
                     </div>
                 ) : (
@@ -58,18 +59,18 @@ function Index(props) {
 
                             <div className="registration-header">
                                 <div className="registration-title">
-                                    <span>რეგისტრაცია</span>
+                                    <span>{trans("registration")}</span>
                                 </div>
                                 <div className="registration-tab">
                         <span
                             className={` ${activeTab === 1 && 'active'}`}
                             onClick={() => handleClick(1)}>
-                            ფიზიკური პირი
+                            {trans("naturalPerson")}
                         </span>
                                     <span
                                         className={` ${activeTab === 2 && 'active'}`}
                                         onClick={() => handleClick(2)}>
-                            იურიდიული პირი
+                            {trans("legalEntity")}
                         </span>
                                 </div>
 
@@ -92,14 +93,14 @@ function Index(props) {
                                                     ]}>
                                                     <Input
                                                         bordered={false}
-                                                        placeholder="სახელი და გვარი"
+                                                        placeholder={trans("nameLastname")}
                                                     />
                                                 </Form.Item>
 
                                                 <Form.Item>
                                                     <Select
                                                         showSearch
-                                                        placeholder="ქვეყანა"
+                                                        placeholder={trans("country")}
                                                         optionFilterProp="children"
                                                         filterOption={(input, option) =>
                                                             (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
@@ -113,7 +114,7 @@ function Index(props) {
                                                 >
                                                     <Input
                                                         bordered={false}
-                                                        placeholder="ელ.ფოსტა"
+                                                        placeholder={trans("email")}
                                                     />
                                                 </Form.Item>
 
@@ -128,14 +129,14 @@ function Index(props) {
                                                     ]}>
                                                     <InputNumber
                                                         bordered={false}
-                                                        placeholder="ტელ.ნომერი"
+                                                        placeholder={trans("phoneNumber")}
                                                         controls={false}
                                                     />
                                                 </Form.Item>
                                                 <Form.Item>
                                                     <button className="registration-sms-button"
                                                             onClick={handleIdIncrease}>
-                                                        <Sms/> კოდის გაგზავნა
+                                                        <Sms/> {trans("sendTheCode")}
                                                     </button>
                                                 </Form.Item>
                                             </Form>
@@ -143,8 +144,7 @@ function Index(props) {
                                         ) : completedStep === 2 ? (
                                             <div className="registration-phone-number">
                                                 <div className="registration-phone-number-text">
-                                                    შეიყვანეთ თქვენს მიერ მითითებულ ტელეფონის ნომერზე მიღებული 4-ნიშნა
-                                                    კოდი
+                                                    {trans("smsCode")}
                                                 </div>
                                                 <div className="registration-phone-number-input-code">
                                                     <InputCode
@@ -158,12 +158,12 @@ function Index(props) {
                                                         <span>00:30</span>
                                                     </div>
                                                     <div className="registration-repeat-input-code">
-                                                        <span><Refresh/>კოდის თავიდან გაგზავნა</span>
+                                                        <span><Refresh/>{trans("sendCode")}</span>
                                                     </div>
                                                 </div>
                                                 <div className="registration-phone-number-button"
                                                      onClick={handleIdIncrease}>
-                                                    <span>დადასტურება</span>
+                                                    <span>{trans("confirmation")}</span>
                                                 </div>
                                             </div>
                                         ) : completedStep === 3 ? (
@@ -190,7 +190,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder="პაროლი"
+                                                                placeholder={trans("password")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -213,7 +213,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder="პაროლი განმეორებით"
+                                                                placeholder={trans("repeatPassword")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -223,7 +223,7 @@ function Index(props) {
                                                             className="registration-repeat-password-confirm"
                                                             onClick={handleIdIncrease}
                                                         >
-                                                            <span>რეგისტრაცია</span>
+                                                            <span>{trans("registration")}</span>
                                                         </div>
                                                     </Form.Item>
                                                 </Form>
@@ -267,7 +267,7 @@ function Index(props) {
                                                     ]}>
                                                     <Input
                                                         bordered={false}
-                                                        placeholder="დასახელება"
+                                                        placeholder={trans("legalEntityName")}
                                                     />
                                                 </Form.Item>
                                                 <Form.Item
@@ -281,7 +281,7 @@ function Index(props) {
                                                     ]}>
                                                     <InputNumber
                                                         bordered={false}
-                                                        placeholder="საიდენტიფიკაციო ნომერი"
+                                                        placeholder={trans("IdentificationNumber")}
                                                         controls={false}
                                                     />
                                                 </Form.Item>
@@ -291,7 +291,7 @@ function Index(props) {
                                                 >
                                                     <Input
                                                         bordered={false}
-                                                        placeholder="ელ.ფოსტა"
+                                                        placeholder={trans("email")}
                                                     />
                                                 </Form.Item>
                                                 <Form.Item
@@ -305,22 +305,21 @@ function Index(props) {
                                                     ]}>
                                                     <InputNumber
                                                         bordered={false}
-                                                        placeholder="ტელ.ნომერი"
+                                                        placeholder={trans("phoneNumber")}
                                                         controls={false}
                                                     />
                                                 </Form.Item>
                                                 <Form.Item>
                                                     <button className="registration-sms-button"
                                                             onClick={handleIdIncreaseLegal}>
-                                                        <Sms/> კოდის გაგზავნა
+                                                        <Sms/> {trans("sendTheCode")}
                                                     </button>
                                                 </Form.Item>
                                             </Form>
                                         ) : completedStepLegal === 2 ? (
                                             <div className="registration-phone-number">
                                                 <div className="registration-phone-number-text">
-                                                    შეიყვანეთ თქვენს მიერ მითითებულ ტელეფონის ნომერზე მიღებული 4-ნიშნა
-                                                    კოდი
+                                                    {trans("smsCode")}
                                                 </div>
                                                 <div className="registration-phone-number-input-code">
                                                     <InputCode
@@ -334,12 +333,12 @@ function Index(props) {
                                                         <span>00:30</span>
                                                     </div>
                                                     <div className="registration-repeat-input-code">
-                                                        <span><Refresh/>კოდის თავიდან გაგზავნა</span>
+                                                        <span><Refresh/>{trans("sendCode")}</span>
                                                     </div>
                                                 </div>
                                                 <div className="registration-phone-number-button"
                                                      onClick={handleIdIncreaseLegal}>
-                                                    <span>დადასტურება</span>
+                                                    <span>{trans("confirmation")}</span>
                                                 </div>
                                             </div>
                                         ) : completedStepLegal === 3 ? (
@@ -360,7 +359,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder="პაროლი"
+                                                                placeholder={trans("password")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -383,7 +382,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder="პაროლი განმეორებით"
+                                                                placeholder={trans("repeatPassword")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -393,7 +392,7 @@ function Index(props) {
                                                             className="registration-repeat-password-confirm"
                                                             onClick={handleIdIncrease}
                                                         >
-                                                            <span>რეგისტრაცია</span>
+                                                            <span>{trans("registration")}</span>
                                                         </div>
                                                     </Form.Item>
                                                 </Form>

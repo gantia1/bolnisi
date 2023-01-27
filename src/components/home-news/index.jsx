@@ -7,11 +7,12 @@ import {ReactComponent as AnnouncementIcon} from "../../assets/images/svg/announ
 import {ReactComponent as Arrow} from "../../assets/images/svg/arrow.svg";
 import {Link} from "react-router-dom";
 import HomeOffers from "../home-offers";
+import translation from "../../language/useTranslation";
 
 function Index() {
     const news = [
         {
-            id: "1",
+            id: 1,
             image: NewsCardImg,
             svg: NewsIcon,
             date: "21.07.2023",
@@ -21,7 +22,7 @@ function Index() {
         },
         {
 
-            id: "2",
+            id: 2,
             image: NewsCardImg2,
             svg: CalendarIcon,
             date: "21.07.2023",
@@ -30,7 +31,7 @@ function Index() {
             text: "ბოლნური ღვინო უკვე მეშვიდე წელია, ქართული ტრადიციული ტრადიციული წესით ქვევრში მზადდება - RMG-ის მხარდაჭერა მეღვინეებს",
         },
         {
-            id: "3",
+            id: 3,
             image: NewsCardImg3,
             svg: AnnouncementIcon,
             date: "21.07.2023",
@@ -42,12 +43,12 @@ function Index() {
                 "                                პოპულარიზაციას, როგორც ადგილობრივ, ისე საერთაშორისო დონეზე.",
         },
     ];
-
+    const {trans} = translation();
     return (
         <>
             <div className="home-news-container">
 
-                <span><h3>სიახლეები</h3></span>
+                <span><h3>{trans("news")}</h3></span>
 
                 <div className="home-news-cards">
 
@@ -78,7 +79,7 @@ function Index() {
                     <Link to="/news">
                         <div className={"all-news"}>
                             <div className={"all-news-arrow"}><Arrow/></div>
-                            <div className={"all-news-text"}>ყველა სიახლე</div>
+                            <div className={"all-news-text"}>{trans("allNews")}</div>
                         </div>
                     </Link>
                 </div>

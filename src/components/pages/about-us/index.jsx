@@ -2,8 +2,10 @@ import AboutUs from "../../../assets/images/png/about-us.png";
 import AboutUs1 from "../../../assets/images/png/about-us1.png";
 import {ReactComponent as Phone} from "../../../assets/images/svg/call.svg";
 import {ReactComponent as Mail} from "../../../assets/images/svg/mail.svg";
+import translation from "../../../language/useTranslation";
 
 function Index() {
+    const {trans} = translation();
     const structure = [
         {
             id: 1,
@@ -70,7 +72,7 @@ function Index() {
 
                 <div className="about-us-left-side">
                     <div className="about-us-title">
-                        <span>ჩვენს შესახებ</span>
+                        <span>{trans("aboutUs")}</span>
                     </div>
                     <div className="about-us-text">
                         <p>
@@ -83,7 +85,7 @@ function Index() {
                         </p>
                     </div>
                     <div className="about-us-title">
-                        <span>მისია და ხედვა</span>
+                        <span>{trans("missionVision")}</span>
                     </div>
                     <div className="about-us-text">
                         <p>
@@ -114,7 +116,7 @@ function Index() {
             <div className="about-us-structure">
 
                 <div className="about-us-title">
-                    <span>სტრუქტურა</span>
+                    <span>{trans("structure")}</span>
                 </div>
 
                 <div className="about-us-structure-cards">
@@ -150,7 +152,7 @@ function Index() {
 
             <div className="about-us-values">
                 <div className="about-us-title">
-                    <span>ღირებულებები</span>
+                    <span>{trans("values")}</span>
                 </div>
                 <div className="about-us-values-cards">
 

@@ -8,6 +8,7 @@ import {ReactComponent as CardHover} from "../../../assets/images/svg/card-hover
 import {ReactComponent as Favorite} from "../../../assets/images/svg/favorite.svg";
 import {ReactComponent as AddFavorite} from "../../../assets/images/svg/add-favorite.svg";
 import {useEffect, useState} from "react";
+import translation from "../../../language/useTranslation";
 
 const sales = [
     {
@@ -55,6 +56,7 @@ const sales = [
 function Index() {
     const [subMenu, setSubMenu] = useState(1);
     const [favorites, setFavorites] = useState([]);
+    const {trans} = translation();
 
     useEffect(() => {
         setFavorites(sales);
@@ -80,32 +82,33 @@ function Index() {
             <div className="store-container">
 
                 <div className="store-production-dropdown">
-                    <span className="store-production-title"><Production/>პროდუქცია</span>
+                    <span className="store-production-title"><Production/>{trans("production")}</span>
 
                     <div className="store-list">
                         <div className="store-production-dropdown-left">
                             <div className="store-production-items">
-                                <div className="store-production-title store-production-title-dropdown"><Production/>პროდუქცია
+                                <div className="store-production-title store-production-title-dropdown">
+                                    <Production/>{trans("production")}
                                 </div>
                                 <ul>
                                     <li className={`store-category ${subMenu === 1 && 'active'}`}
                                         onMouseOver={() => handleClick(1)}>
-                                        <p>ღვინო</p>
+                                        <p>{trans("wine")}</p>
                                         <Arrow/>
                                     </li>
                                     <li className={`store-category ${subMenu === 2 && 'active'}`}
                                         onMouseOver={() => handleClick(2)}>
-                                        <p>რძის პროდუქტები</p>
+                                        <p>{trans("milkProducts")}</p>
                                         <Arrow/>
                                     </li>
                                     <li className={`store-category ${subMenu === 3 && 'active'}`}
                                         onMouseOver={() => handleClick(3)}>
-                                        <p>ხილ-ბოსტნეული</p>
+                                        <p>{trans("fruitsVegetables")}</p>
                                         <Arrow/>
                                     </li>
                                     <li className={`store-category ${subMenu === 4 && 'active'}`}
                                         onMouseOver={() => handleClick(4)}>
-                                        <p>სხვა</p>
+                                        <p>{trans("other")}</p>
                                         <Arrow/>
                                     </li>
                                 </ul>
@@ -114,35 +117,33 @@ function Index() {
                         <div className="store-production-dropdown-right">
                             {subMenu === 1 ? (
                                 <ul>
-                                    <li>წითელი</li>
-                                    <li>თეთრი</li>
-                                    <li>მშრალი</li>
-                                    <li>ქარხნული</li>
-                                    <li>ოჯახის მარნის</li>
-                                    <li>ქვევრის</li>
+                                    <li>{trans("red")}</li>
+                                    <li>{trans("white")}</li>
+                                    <li>{trans("dry")}</li>
+                                    <li>{trans("factory")}</li>
+                                    <li>{trans("familyCellar")}</li>
+                                    <li>{trans("ofThePitcher")}</li>
                                 </ul>
                             ) : subMenu === 2 ? (
                                 <ul>
-                                    <li>რძე</li>
-                                    <li>რძე</li>
-                                    <li>რძე</li>
-                                    <li>რძე</li>
-                                    <li>რძე</li>
-                                    <li>რძე</li>
+                                    <li>{trans("milk")}</li>
+                                    <li>{trans("milk")}</li>
+                                    <li>{trans("milk")}</li>
+                                    <li>{trans("milk")}</li>
+                                    <li>{trans("milk")}</li>
+
                                 </ul>
                             ) : subMenu === 3 ? (
                                 <ul>
-                                    <li>ხილი</li>
-                                    <li>ხილი</li>
-                                    <li>ხილი</li>
-                                    <li>ხილი</li>
-                                    <li>ხილი</li>
-                                    <li>ხილი</li>
+                                    <li>{trans("fruit")}</li>
+                                    <li>{trans("fruit")}</li>
+                                    <li>{trans("fruit")}</li>
+                                    <li>{trans("fruit")}</li>
                                 </ul>
                             ) : subMenu === 4 ? (
                                 <ul>
-                                    <li>სხვა</li>
-                                    <li>სხვა</li>
+                                    <li>{trans("other")}</li>
+                                    <li>{trans("other")}</li>
                                 </ul>
                             ) : null}
                         </div>
@@ -151,8 +152,8 @@ function Index() {
                 </div>
 
                 <div className="store-production-cards-title store-production-sale">
-                    <span>ფასდაკლებული პროდუქცია</span>
-                    <span>სრულად</span>
+                    <span>{trans("discountedProducts")}</span>
+                    <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
                 <div className="store-production-cards">
@@ -181,10 +182,10 @@ function Index() {
                                     </div>
 
                                     {sale.favorite === true ? (
-                                        <span className="add-to-favorites-tooltip">რჩეულებიდან წაშლა</span>
+                                        <span className="add-to-favorites-tooltip">{trans("removeFromFavorites")}</span>
 
                                     ) : (
-                                        <span className="add-to-favorites-tooltip">რჩეულებში დამატება</span>
+                                        <span className="add-to-favorites-tooltip">{trans("addToFavorites")}</span>
                                     )}
 
                                 </div>
@@ -202,15 +203,15 @@ function Index() {
                             </div>
                             <div className="store-production-card-add">
                                 <span><Add/></span>
-                                <span>დაამატე კალათში</span>
+                                <span>{trans("addToCard")}</span>
                             </div>
                         </div>
                     ))}
                 </div>
 
                 <div className="store-production-cards-title">
-                    <span>ღვინო</span>
-                    <span>სრულად</span>
+                    <span>{trans("wine")}</span>
+                    <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
                 <div className="store-production-cards">
@@ -246,14 +247,14 @@ function Index() {
                             </div>
                             <div className="store-production-card-add">
                                 <span><Add/></span>
-                                <span>დაამატე კალათში</span>
+                                <span>{trans("addToCard")}</span>
                             </div>
                         </div>
                     ))}
                 </div>
                 <div className="store-production-cards-title">
-                    <span>რძის პროდუქტები</span>
-                    <span>სრულად</span>
+                    <span>{trans("milkProducts")}</span>
+                    <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
                 <div className="store-production-cards">
@@ -289,14 +290,14 @@ function Index() {
                             </div>
                             <div className="store-production-card-add">
                                 <span><Add/></span>
-                                <span>დაამატე კალათში</span>
+                                <span>{trans("addToCard")}</span>
                             </div>
                         </div>
                     ))}
                 </div>
                 <div className="store-production-cards-title">
-                    <span>ხილ-ბოსტნეული</span>
-                    <span>სრულად</span>
+                    <span>{trans("fruitsVegetables")}</span>
+                    <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
                 <div className="store-production-cards">
@@ -332,7 +333,7 @@ function Index() {
                             </div>
                             <div className="store-production-card-add">
                                 <span><Add/></span>
-                                <span>დაამატე კალათში</span>
+                                <span>{trans("addToCard")}</span>
                             </div>
                         </div>
                     ))}

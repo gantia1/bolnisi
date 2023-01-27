@@ -123,11 +123,15 @@ header {
   }
 
   .language {
-    min-width: 160px;
+    min-width: 170px;
     border: none;
     cursor: pointer;
     border-radius: 26px;
     font-family: $font-55-roman;
+  }
+
+  p {
+    margin: 0;
   }
 
   .language-selection {
@@ -135,6 +139,12 @@ header {
     display: inline-block;
     background-color: $grey;
     border-radius: 26px;
+
+    svg:last-child {
+      position: absolute;
+      right: 20px;
+      top: 43%;
+    }
   }
 
   .language-selection:hover {
@@ -148,18 +158,20 @@ header {
     position: absolute;
     background-color: $grey;
     border-radius: 0 0 20px 20px;
-    min-width: 167px;
+    min-width: 170px;
     z-index: 1;
   }
 
-  .language-selection a {
+  .language-selection p {
     color: black;
     padding: 14px 16px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
+    min-width: 170px;
   }
 
-  .language a:hover {
+  .language p:hover {
     background-color: $grey;
     border-radius: 16px 16px 0 0;
 
@@ -169,12 +181,12 @@ header {
     margin: 0 5px;
   }
 
-  .language-dropdown-content a:hover {
+  .language-dropdown-content p:hover {
     background-color: $grey;
     transition: ease-out .3s;
   }
 
-  .language-dropdown-content a:last-child:hover {
+  .language-dropdown-content p:last-child:hover {
     border-radius: 0 0 20px 20px;
     transition: ease-out .3s;
   }
@@ -222,6 +234,8 @@ header {
     font-size: 20px;
     cursor: pointer;
     font-weight: bold;
+    min-width: 115px;
+    text-align: center;
 
     svg {
       vertical-align: bottom;
@@ -295,9 +309,11 @@ header {
       padding: 28px 60px;
       width: 260px;
       font-family: $font-bold;
+      white-space: nowrap;
     }
 
     svg {
+      margin-right: 5px;
       vertical-align: text-bottom;
     }
   }
@@ -1310,26 +1326,42 @@ footer {
     margin: 0 0 0 30px;
   }
 
-  .news-start-date:after {
-    content: "-დან";
+  .news-start-date-ka:after, .news-start-date-en:after, .news-start-date.ru:after {
+    content: "- დან";
     position: absolute;
-    left: 41%;
+    left: 42%;
     font-size: 14px;
     pointer-events: none;
   }
 
-  .news-end-date:before {
+  .news-start-date-en:after {
+    content: "from";
+  }
+
+  .news-start-date:after .ka {
+    content: "-დდ";
+  }
+
+  .news-end-date-ka:before, .news-end-date-en:before, .news-end-date-ru:before, {
     content: "-";
     position: absolute;
     left: -10px;
   }
 
-  .news-end-date:after {
+  .news-end-date-ka:after, .news-end-date-en:after, .news-end-date-ru:after {
     content: "-მდე";
     position: absolute;
-    left: 41%;
+    left: 42%;
     font-size: 14px;
     pointer-events: none;
+  }
+
+  .news-end-date-en:after {
+    content: "to";
+  }
+
+  .news-end-date-ru:after {
+    content: "-";
   }
 
   .news-date-search-mobile {
@@ -2215,6 +2247,7 @@ footer {
       vertical-align: bottom;
       rotate: -90deg;
       margin-left: -20px;
+
       path {
         fill: $dark-green;
       }
@@ -3830,6 +3863,10 @@ footer {
     font-size: 15px;
   }
 
+  p {
+    margin: 0;
+  }
+
   .language-selection-mobile-menu:hover {
     border-radius: 16px 16px 0 0;
     transition: ease-out .3s;
@@ -3844,14 +3881,15 @@ footer {
     z-index: 1;
   }
 
-  .language-selection-mobile-menu a {
+  .language-selection-mobile-menu p {
     color: $dark-grey;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
   }
 
-  .mobile-menu-language a:hover {
+  .mobile-menu-language p:hover {
     border-radius: 16px 16px 0 0;
   }
 
@@ -3859,11 +3897,11 @@ footer {
     margin: 0 5px;
   }
 
-  .mobile-menu-language-dropdown a:hover {
+  .mobile-menu-language-dropdown p:hover {
     transition: ease-out .3s;
   }
 
-  .mobile-menu-language-dropdown a:last-child:hover {
+  .mobile-menu-language-dropdown p:last-child:hover {
     border-radius: 0 0 20px 20px;
     transition: ease-out .3s;
   }
@@ -3871,6 +3909,12 @@ footer {
   .language-selection-mobile-menu:hover .mobile-menu-language-dropdown {
     display: block;
     background-color: #E2E2E2;
+  }
+
+  .language-selection-mobile-menu svg:last-child {
+    position: absolute;
+    right: 15px;
+    top: 40%;
   }
 
   .language-selection-mobile-menu svg path:last-child {

@@ -7,8 +7,10 @@ import {ReactComponent as Youtube} from "../../assets/images/svg/youtube.svg";
 import {Link} from "react-router-dom";
 import {useEffect} from "react";
 import Map from "../../assets/images/png/mini-map.png";
+import translation from "../../language/useTranslation";
 
 function Index() {
+    const {trans} = translation();
     useEffect(() => {
         scrollToTop();
     }, []);
@@ -34,29 +36,29 @@ function Index() {
                                 <ul className="footer-menu">
 
                                     <li className='footer-list-item'>
-                                        <Link onClick={scrollToTop} to="/">მთავარი</Link>
+                                        <Link onClick={scrollToTop} to="/">{trans("main")}</Link>
                                     </li>
                                     <li className='footer-list-item'>
-                                        <Link onClick={scrollToTop} to="/news">სიახლეები</Link>
+                                        <Link onClick={scrollToTop} to="/news">{trans("news")}</Link>
                                     </li>
                                     <li className='footer-list-item'>
-                                        <Link onClick={scrollToTop} to="/about-us">ჩვენს შესახებ</Link>
+                                        <Link onClick={scrollToTop} to="/about-us">{trans("aboutUs")}</Link>
                                     </li>
 
                                 </ul>
 
                                 <ul className="footer-menu">
 
-                                    <li className='footer-list-item'>ბოლნისის მუნიციპალიტეტი</li>
-                                    <li className='footer-list-item'><Link to="#">წესები და პირობები</Link></li>
+                                    <li className='footer-list-item'>{trans("municipality")}</li>
+                                    <li className='footer-list-item'><Link to="#">{trans("termsConditions")}</Link></li>
                                     <li className='footer-list-item'><Link onClick={scrollToTop}
-                                                                           to="/contact">კონტაქტი</Link></li>
+                                                                           to="/contact">{trans("contact")}</Link></li>
 
                                 </ul>
                             </div>
                             <ul className="footer-phone-number">
                                 <a href="tel:+995551250026">
-                                    <li>დაგვიკავშირდით<h2>+995 551 25 00 26</h2></li>
+                                    <li>{trans("contactUs")}<h2>+995 551 25 00 26</h2></li>
                                 </a>
                                 <ul className="footer-social-media">
                                     <li><Facebook/></li>
@@ -78,7 +80,7 @@ function Index() {
 
                         <ul className="footer-address">
                             <li className='footer-list-item'>
-                                დავით აღმაშენებლის 13ა, ბოლნისი, საქართველო
+                                {trans("address")}
                             </li>
                             <li className="footer-list-item">
                                 <a href="mailto:agrocentribolnisi@gmail.com">agrocentribolnisi@gmail.com</a>

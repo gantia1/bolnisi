@@ -15,7 +15,7 @@ import NewsImageSixth from "../../../assets/images/png/news-image-5.png";
 import NewsImageSeventh from "../../../assets/images/png/news-image-6.png";
 import NewsImageEighth from "../../../assets/images/png/menu-image1.png";
 import {Pagination} from "antd";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {ReactComponent as SearchIcon} from "../../../assets/images/svg/search.svg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,13 +23,15 @@ import {ReactComponent as CalendarFuture} from "../../../assets/images/svg/calen
 import MaskedInput from 'react-text-mask'
 import Dropdown from "../../dropdown";
 import {useNavigate} from "react-router-dom";
+import {TranslationContext} from "../../../contexts/TranslationContext";
+import translation from "../../../language/useTranslation";
 
 
 function Index() {
 
     const news = [
         {
-            id: "1",
+            id: 1,
             image: NewsImage,
             svg: NewsIcon,
             date: new Date(2022, 11, 12),
@@ -39,7 +41,7 @@ function Index() {
         },
         {
 
-            id: "2",
+            id: 2,
             image: NewsImageSecond,
             svg: CalendarIcon,
             date: new Date(2022, 10, 12),
@@ -48,7 +50,7 @@ function Index() {
             text: "ბოლნური ღვინო უკვე მეშვიდე წელია, ქართული ტრადიციული ტრადიციული წესით ქვევრში მზადდება - RMG-ის მხარდაჭერა მეღვინეებს",
         },
         {
-            id: "3",
+            id: 3,
             image: NewsImageThird,
             svg: AnnouncementIcon,
             date: new Date(2022, 9, 12),
@@ -60,7 +62,7 @@ function Index() {
                 "                                პოპულარიზაციას, როგორც ადგილობრივ, ისე საერთაშორისო დონეზე.",
         },
         {
-            id: "4",
+            id: 4,
             image: NewsImageFourth,
             svg: NewsIcon,
             date: new Date(2022, 8, 12),
@@ -70,7 +72,7 @@ function Index() {
         },
         {
 
-            id: "5",
+            id: 5,
             image: NewsImageFifth,
             svg: CalendarIcon,
             date: new Date(2022, 10, 12),
@@ -79,7 +81,7 @@ function Index() {
             text: "ბოლნური ღვინო უკვე მეშვიდე წელია, ქართული ტრადიციული ტრადიციული წესით ქვევრში მზადდება - RMG-ის მხარდაჭერა მეღვინეებს",
         },
         {
-            id: "6",
+            id: 6,
             image: NewsImageSixth,
             svg: AnnouncementIcon,
             date: new Date(2022, 10, 12),
@@ -91,7 +93,7 @@ function Index() {
                 "                                პოპულარიზაციას, როგორც ადგილობრივ, ისე საერთაშორისო დონეზე.",
         },
         {
-            id: "7",
+            id: 7,
             image: NewsImageSeventh,
             svg: NewsIcon,
             date: new Date(2022, 10, 12),
@@ -101,7 +103,7 @@ function Index() {
         },
         {
 
-            id: "8",
+            id: 8,
             image: NewsImageEighth,
             svg: CalendarIcon,
             date: new Date(2022, 10, 12),
@@ -115,6 +117,7 @@ function Index() {
     const [activeTab, setActiveTab] = useState(1);
     const [selected, setSelected] = useState("ყველა");
     const [searchData, setSearchData] = useState();
+    const {currentLanguage} = useContext(TranslationContext);
 
     const [data, setData] = useState({
         startDate: new Date("01/01/2022"),
@@ -123,6 +126,7 @@ function Index() {
 
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
+    const {trans} = translation();
 
     let newsCategory = news.filter(news => news.category === "სიახლე");
     let eventCategory = news.filter(news => news.category === "ღონისძიება");
@@ -170,6 +174,7 @@ function Index() {
         })
     }
 
+
     const handleClick = (id, name) => {
         setActiveTab(id);
         setFiltered(name);
@@ -196,15 +201,15 @@ function Index() {
                 <div className="news-filter-desktop">
                     <div className="news-filter-list">
                           <span className={` ${activeTab === 1 && 'active'}`}
-                                onClick={() => handleClick(1, news)}><All/>ყველა</span>
+                                onClick={() => handleClick(1, news)}><All/>{trans("all")}</span>
                         <span className={` ${activeTab === 2 && 'active'}`}
-                              onClick={() => handleClick(2, newsCategory)}><Calendar/>სიახლეები</span>
+                              onClick={() => handleClick(2, newsCategory)}><Calendar/>{trans("news")}</span>
                         <span className={` ${activeTab === 3 && 'active'}`}
-                              onClick={() => handleClick(3, eventCategory)}><CalendarToday/>ღონისძიებები</span>
+                              onClick={() => handleClick(3, eventCategory)}><CalendarToday/>{trans("events")}</span>
                         <span className={` ${activeTab === 4 && 'active'}`}
-                              onClick={() => handleClick(4, saleCategory)}><Percent/>ფასდაკლებები</span>
+                              onClick={() => handleClick(4, saleCategory)}><Percent/>{trans("discounts")}</span>
                         <span className={` ${activeTab === 5 && 'active'}`}
-                              onClick={() => handleClick(5, announcementCategory)}><Announcement/>განცხადებები</span>
+                              onClick={() => handleClick(5, announcementCategory)}><Announcement/>{trans("statements")}</span>
                     </div>
                 </div>
 
@@ -236,7 +241,7 @@ function Index() {
                             />
                             <span className="news-today-calendar"><CalendarToday/></span>
                         </li>
-                        <li className="news-date-search news-start-date">
+                        <li className={`news-date-search news-start-date${'-' + currentLanguage}`}>
                             <DatePicker
                                 dateFormat="dd/MM/yyyy"
                                 selected={data.startDate}
@@ -249,7 +254,7 @@ function Index() {
                             />
                             <span className="news-today-calendar"><CalendarToday/></span>
                         </li>
-                        <li className="news-date-search news-end-date">
+                        <li className={`news-date-search news-end-date${'-' + currentLanguage}`}>
                             <DatePicker
                                 dateFormat="dd/MM/yyyy"
                                 selected={data.endDate}
@@ -266,7 +271,7 @@ function Index() {
                         <li
                             className="news-date-search news-search-input"
                         >
-                            <input placeholder={"საძიებო სიტყვა"}
+                            <input placeholder={trans("searchWord")}
                                    onChange={filterBySearch}
                                    onKeyPress={event => {
                                        if (event.key === 'Enter') {

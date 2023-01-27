@@ -22,6 +22,7 @@ import {ReactComponent as ProductAdd} from "../../../assets/images/svg/shopping-
 import {ReactComponent as Percent} from "../../../assets/images/svg/percentw.svg";
 import {Link} from "react-router-dom";
 import Dropdown from "../../dropdown";
+import translation from "../../../language/useTranslation";
 
 
 function Index() {
@@ -73,7 +74,7 @@ function Index() {
     let wine = products.filter(products => products.category === "wine");
     let milk = products.filter(products => products.category === "milk");
     let fruit = products.filter(products => products.category === "fruit");
-
+    const {trans} = translation();
     const images = [
         {
             id: 1,
@@ -161,10 +162,10 @@ function Index() {
                 </div>
                 <div className="online-store-tabs">
                         <span className={`online-store-tab ${activeTab === 1 && 'active'}`}
-                              onClick={() => handleClick(1)}>პროდუქცია
+                              onClick={() => handleClick(1)}>{trans("production")}
                         </span>
                     <span className={`online-store-tab ${activeTab === 2 && 'active'}`}
-                          onClick={() => handleClick(2)}>დეტალური ინფორმაცია
+                          onClick={() => handleClick(2)}>{trans("informationInDetails")}
                 </span>
                     <hr/>
                 </div>
@@ -176,24 +177,24 @@ function Index() {
                                 className={` ${activeFilter === 1 && 'active'}`}
                                 onClick={() => handleClickFilter(1, products)}
                             >
-                                <AllProducts/>ყველა პროდუქტი
+                                <AllProducts/>{trans("allProducts")}
                             </span>
                             <span
                                 className={` ${activeFilter === 2 && 'active'}`}
                                 onClick={() => handleClickFilter(2, wine)}
                             >
-                            <Wine/>ღვინო</span>
+                            <Wine/>{trans("wine")}</span>
                             <span
                                 className={` ${activeFilter === 3 && 'active'}`}
                                 onClick={() => handleClickFilter(3, milk)}
                             >
-                                <Milk/>რძის პროდუქცია
+                                <Milk/>{trans("milkProducts")}
                             </span>
                             <span
                                 className={` ${activeFilter === 4 && 'active'}`}
                                 onClick={() => handleClickFilter(4, fruit)}
                             >
-                                <Fruit/>ხილ-ბოსტნეული
+                                <Fruit/>{trans("fruitsVegetables")}
                             </span>
                         </div>
 
@@ -232,7 +233,7 @@ function Index() {
                                         <p>{product.text}</p>
                                     </div>
                                     <div className="online-detail-production-card-add">
-                                        <ProductAdd/> დაამატე კალათში
+                                        <ProductAdd/> {trans("addToCard")}
                                     </div>
                                 </div>
 

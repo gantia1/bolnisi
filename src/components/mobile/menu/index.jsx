@@ -6,14 +6,25 @@ import {ReactComponent as LoginIcon} from "../../../assets/images/svg/account.sv
 import {ReactComponent as Shopping} from "../../../assets/images/svg/shopping.svg";
 import {ReactComponent as Store} from "../../../assets/images/svg/store.svg";
 import Registration from "../../registration";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import translation from "../../../language/useTranslation";
+import {TranslationContext} from "../../../contexts/TranslationContext";
+
+const langs = ['ka', 'en', 'ru']
 
 function Index(props) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const {currentLanguage, setCurrentLanguage} = useContext(TranslationContext)
+    const {trans} = translation();
     const showModal = () => {
         setIsModalOpen(true);
     };
+    const languages = {
+        ka: <p onClick={() => setCurrentLanguage("ka")}><Ge/> <span> ქართული </span></p>,
+        en: <p onClick={() => setCurrentLanguage("en")}><Ge/> <span> English </span></p>,
+        ru: <p onClick={() => setCurrentLanguage("ru")}><Ge/> <span> Русский</span></p>,
+    }
     return (
         <>
             <Drawer className='mobile-menu' width={"100%"} placement="right" open={props.open}
@@ -23,33 +34,36 @@ function Index(props) {
 
                     <div className="language-selection-mobile-menu">
                         <div className="mobile-menu-language">
-                            <Link to="#"><Ge/> <span>ქართული</span> <Arrow className="arrow"/></Link>
+                            {languages[currentLanguage]}<Arrow className="arrow"/>
                         </div>
                         <div className="mobile-menu-language-dropdown">
-                            <Link to="#"><Ge/><span>English</span></Link>
-                            <Link to="#"><Ge/><span>Русский</span></Link>
+                            {langs.map((lang) => {
+                                if (lang !== currentLanguage) {
+                                    return languages[lang]
+                                }
+                            })}
                         </div>
                     </div>
 
                     <div className="mobile-menu-list-items">
                         <ul>
                             <Link to="/">
-                                <li onClick={props.close}><p>მთავარი</p><Arrow/></li>
+                                <li onClick={props.close}><p>{trans("main")}</p><Arrow/></li>
                             </Link>
                             <Link to="/news">
-                                <li onClick={props.close}><p>სიახლეები</p><Arrow/></li>
+                                <li onClick={props.close}><p>{trans("news")}</p><Arrow/></li>
                             </Link>
                             <Link to="/about-us">
-                                <li onClick={props.close}><p>ჩვენს შესახებ</p><Arrow/></li>
+                                <li onClick={props.close}><p>{trans("aboutUs")}</p><Arrow/></li>
                             </Link>
                             <Link to="#">
-                                <li onClick={props.close}><p>ბოლნისის მუნიციპალიტეტი</p><Arrow/></li>
+                                <li onClick={props.close}><p>{trans("municipality")}</p><Arrow/></li>
                             </Link>
                             <Link to="#">
-                                <li onClick={props.close}><p>წესები და პირობები</p><Arrow/></li>
+                                <li onClick={props.close}><p>{trans("termsConditions")}</p><Arrow/></li>
                             </Link>
                             <Link to="/contact">
-                                <li onClick={props.close}><p>კონტაქტი</p><Arrow/></li>
+                                <li onClick={props.close}><p>{trans("contact")}</p><Arrow/></li>
                             </Link>
 
                         </ul>
@@ -58,14 +72,14 @@ function Index(props) {
                     <div className="mobile-menu-bottom">
                         <div className="mobile-menu-registration" onClick={showModal}>
                             <LoginIcon/>
-                            <span>შესვლა / რეგისტრაცია</span>
+                            <span>{trans("loginRegistration")}</span>
                         </div>
                         <div className="mobile-menu-shopping">
-                            <Shopping/><Link to="#">კალათა</Link>
+                            <Shopping/><Link to="#">{trans("basket")}</Link>
                         </div>
                         <div className="mobile-menu-button">
                             <Link to="/store">
-                                <button onClick={props.close}><Store/>მაღაზია</button>
+                                <button onClick={props.close}><Store/>{trans("shop")}</button>
                             </Link>
                         </div>
                     </div>
