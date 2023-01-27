@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bolnisi/static/css/main.20a7146b.css",
-    "main.js": "/bolnisi/static/js/main.73a3bfe2.js",
+    "main.css": "/bolnisi/static/css/main.344688e0.css",
+    "main.js": "/bolnisi/static/js/main.99e2665e.js",
     "static/media/news-card.png": "/bolnisi/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/static/media/slide-img.c92c80a463b1612a583d.png",
     "static/media/news-card-1.png": "/bolnisi/static/media/news-card-1.a9a52a0af885f51c548d.png",
@@ -40,12 +40,12 @@
     "static/media/fruit.svg": "/bolnisi/static/media/fruit.60bd98fff0f78d47bc452ef649aeba5a.svg",
     "static/media/add-favorite.svg": "/bolnisi/static/media/add-favorite.b4072931e8e351f2ea919e9f5073a881.svg",
     "static/media/registration-leaf.svg": "/bolnisi/static/media/registration-leaf.a84382a4a33fcd332482.svg",
-    "static/media/grey-leaf.svg": "/bolnisi/static/media/grey-leaf.b2f50cbe7ae897993164.svg",
     "static/media/store.svg": "/bolnisi/static/media/store.1f16f501b8162dc95122e81031ed0184.svg",
     "static/media/shopping.svg": "/bolnisi/static/media/shopping.702156f93de2578f26dbbbdd91b6dfc7.svg",
     "static/media/shopping-1.svg": "/bolnisi/static/media/shopping-1.605de2fcde3b0cc4efd9e1e8da50a035.svg",
     "static/media/success-popup.svg": "/bolnisi/static/media/success-popup.995d1e46d57f3739dace7a7662a5b7d6.svg",
     "static/media/background.svg": "/bolnisi/static/media/background.63ab50a349c652e08794.svg",
+    "static/media/grey-leaf.svg": "/bolnisi/static/media/grey-leaf.ff23497962adc45677ed.svg",
     "static/media/percent.svg": "/bolnisi/static/media/percent.2f517e70bf7339666653880b73d7a014.svg",
     "static/media/call.svg": "/bolnisi/static/media/call.394cbb5f91b2916a58a868ed20f9b888.svg",
     "static/media/milk.svg": "/bolnisi/static/media/milk.49f0a89c2d8128a6c1e8a54726d5e3c2.svg",
@@ -80,11 +80,11 @@
     "static/media/arrow.svg": "/bolnisi/static/media/arrow.f8e1235fc441b96b8d3ba2da91861ad7.svg",
     "static/media/card-hover.svg": "/bolnisi/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
-    "main.20a7146b.css.map": "/bolnisi/static/css/main.20a7146b.css.map",
-    "main.73a3bfe2.js.map": "/bolnisi/static/js/main.73a3bfe2.js.map"
+    "main.344688e0.css.map": "/bolnisi/static/css/main.344688e0.css.map",
+    "main.99e2665e.js.map": "/bolnisi/static/js/main.99e2665e.js.map"
   },
   "entrypoints": [
-    "static/css/main.20a7146b.css",
-    "static/js/main.73a3bfe2.js"
+    "static/css/main.344688e0.css",
+    "static/js/main.99e2665e.js"
   ]
 }
