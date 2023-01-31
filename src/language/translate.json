@@ -67,7 +67,12 @@
     "informationInDetails": "დეტალური ინფორმაცია",
     "loginRegistration": "შესვლა / რეგისტრაცია",
     "milk": "რძე",
-    "fruit": "ხილი"
+    "fruit": "ხილი",
+    "additionalInfo": "დამატებითი ინფორმაცია",
+    "capacity": "მოცულობა",
+    "year": "წელი",
+    "alcoholVol": "გრადუსი",
+    "similarProducts": "მსგავსი პროდუქტები"
   },
   "en": {
     "main": "Main",

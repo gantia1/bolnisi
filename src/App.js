@@ -13,11 +13,12 @@ import AboutUs from "./components/pages/about-us";
 import OnlineStore from "./components/pages/online-store";
 import NewsDetail from "./components/pages/news-detail";
 import Store from "./components/pages/store";
+import Product from "./components/pages/product";
 
 
 function App() {
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter>
             <Routes>
                 <Route
                     path="/"
@@ -50,6 +51,10 @@ function App() {
                     <Route
                         path="/news/:id"
                         element={<NewsDetail/>}
+                    />
+                    <Route
+                        path="/product/:id"
+                        element={<Product/>}
                     />
                 </Route>
 

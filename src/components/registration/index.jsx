@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Form, Input, InputNumber, Modal, Select} from "antd";
 import {ReactComponent as Sms} from "../../assets/images/svg/sms.svg";
 import {ReactComponent as Refresh} from "../../assets/images/svg/refresh.svg";
@@ -10,7 +10,14 @@ function Index(props) {
     const [activeTab, setActiveTab] = useState(1);
     const [completedStep, setCompletedStep] = useState(1);
     const [completedStepLegal, setCompletedStepLegal] = useState(1);
+    const [loading, setLoading] = useState(0);
     const {trans} = translation();
+
+    useEffect(() => {
+        loading > 0
+            ? setTimeout(() => setLoading(loading - 1), 1000)
+            : setLoading(0);
+    }, [loading]);
     const handleClickStep = (id) => {
         setCompletedStep(id);
     };
@@ -37,6 +44,7 @@ function Index(props) {
         setCompletedStep(id);
         setCompletedStepLegal(id);
     };
+
 
     return (
         <Modal className="registration-body" open={props.open} onCancel={props.close} footer={false}>
@@ -135,7 +143,10 @@ function Index(props) {
                                                 </Form.Item>
                                                 <Form.Item>
                                                     <button className="registration-sms-button"
-                                                            onClick={handleIdIncrease}>
+                                                            onClick={() => {
+                                                                setLoading(30);
+                                                                handleIdIncrease()
+                                                            }}>
                                                         <Sms/> {trans("sendTheCode")}
                                                     </button>
                                                 </Form.Item>
@@ -155,10 +166,19 @@ function Index(props) {
                                                 </div>
                                                 <div className="registration-phone-number-footer">
                                                     <div className="registration-input-code-time">
-                                                        <span>00:30</span>
+                                                        <span>{`00:${loading > 9 ? loading : '0' + loading}`}</span>
+
                                                     </div>
-                                                    <div className="registration-repeat-input-code">
-                                                        <span><Refresh/>{trans("sendCode")}</span>
+                                                    <div className="registration-repeat-input-code" style={{
+                                                        opacity: loading > 0 ? '0.5' : '1',
+                                                        cursor: loading > 0 ? 'notAllowed' : 'pointer'
+                                                    }}>
+                                                        <span
+                                                            style={{pointerEvents: loading > 0 ? 'none' : 'unset'}}
+                                                            onClick={() => setLoading(30)}>
+                                                            <span className={`resend-sms ${loading > 0 && 'loading'}`}
+                                                            ><Refresh/></span>
+                                                            {trans("sendCode")}</span>
                                                     </div>
                                                 </div>
                                                 <div className="registration-phone-number-button"
@@ -236,16 +256,25 @@ function Index(props) {
                                                 <div
                                                     className={`stepper-item ${completedStep === 1 ? 'completed' : "completed"}`}>
                                                     <div className="step-counter"
+                                                         style={{
+                                                             pointerEvents: loading > 0 ? 'none' : 'unset'
+                                                         }}
                                                          onClick={() => handleClickStep(1)}></div>
                                                 </div>
                                                 <div
                                                     className={`stepper-item ${completedStep >= 2 ? 'completed' : null}`}>
                                                     <div className="step-counter"
+                                                         style={{
+                                                             pointerEvents: loading > 0 ? 'none' : 'unset'
+                                                         }}
                                                          onClick={() => handleClickStep(2)}></div>
                                                 </div>
                                                 <div
                                                     className={`stepper-item ${completedStep >= 3 ? 'completed' : null}`}>
                                                     <div className="step-counter"
+                                                         style={{
+                                                             pointerEvents: loading > 0 ? 'none' : 'unset'
+                                                         }}
                                                          onClick={() => handleClickStep(3)}></div>
                                                 </div>
                                             </div>
@@ -311,7 +340,10 @@ function Index(props) {
                                                 </Form.Item>
                                                 <Form.Item>
                                                     <button className="registration-sms-button"
-                                                            onClick={handleIdIncreaseLegal}>
+                                                            onClick={() => {
+                                                                setLoading(30);
+                                                                handleIdIncreaseLegal()
+                                                            }}>
                                                         <Sms/> {trans("sendTheCode")}
                                                     </button>
                                                 </Form.Item>
@@ -330,10 +362,18 @@ function Index(props) {
                                                 </div>
                                                 <div className="registration-phone-number-footer">
                                                     <div className="registration-input-code-time">
-                                                        <span>00:30</span>
+                                                        <span>{`00:${loading > 9 ? loading : '0' + loading}`}</span>
                                                     </div>
-                                                    <div className="registration-repeat-input-code">
-                                                        <span><Refresh/>{trans("sendCode")}</span>
+                                                    <div className="registration-repeat-input-code" style={{
+                                                        opacity: loading > 0 ? '0.5' : '1',
+                                                        cursor: loading > 0 ? 'notAllowed' : 'pointer'
+                                                    }}>
+                                                        <span
+                                                            style={{pointerEvents: loading > 0 ? 'none' : 'unset'}}
+                                                            onClick={() => setLoading(30)}>
+                                                            <span className={`resend-sms ${loading > 0 && 'loading'}`}
+                                                            ><Refresh/></span>
+                                                            {trans("sendCode")}</span>
                                                     </div>
                                                 </div>
                                                 <div className="registration-phone-number-button"
@@ -404,16 +444,25 @@ function Index(props) {
                                                 <div
                                                     className={`stepper-item ${completedStepLegal === 1 ? 'completed' : "completed"}`}>
                                                     <div className="step-counter"
+                                                         style={{
+                                                             pointerEvents: loading > 0 ? 'none' : 'unset'
+                                                         }}
                                                          onClick={() => handleClickStepLegal(1)}></div>
                                                 </div>
                                                 <div
                                                     className={`stepper-item ${completedStepLegal >= 2 ? 'completed' : null}`}>
                                                     <div className="step-counter"
+                                                         style={{
+                                                             pointerEvents: loading > 0 ? 'none' : 'unset'
+                                                         }}
                                                          onClick={() => handleClickStepLegal(2)}></div>
                                                 </div>
                                                 <div
                                                     className={`stepper-item ${completedStepLegal >= 3 ? 'completed' : null}`}>
                                                     <div className="step-counter"
+                                                         style={{
+                                                             pointerEvents: loading > 0 ? 'none' : 'unset'
+                                                         }}
                                                          onClick={() => handleClickStep(3)}></div>
                                                 </div>
                                             </div>

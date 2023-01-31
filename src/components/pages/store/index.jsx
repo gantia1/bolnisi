@@ -2,13 +2,9 @@ import Slider from "../../slider";
 import {ReactComponent as Arrow} from "../../../assets/images/svg/arrow.svg";
 import {ReactComponent as Production} from "../../../assets/images/svg/production.svg";
 import salesImage from "../../../assets/images/png/offers-img.png";
-import {ReactComponent as Add} from "../../../assets/images/svg/shopping-1.svg";
-import {ReactComponent as Percent} from "../../../assets/images/svg/percentw.svg";
-import {ReactComponent as CardHover} from "../../../assets/images/svg/card-hover.svg";
-import {ReactComponent as Favorite} from "../../../assets/images/svg/favorite.svg";
-import {ReactComponent as AddFavorite} from "../../../assets/images/svg/add-favorite.svg";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import translation from "../../../language/useTranslation";
+import StoreCard from "../../store-card";
 
 const sales = [
     {
@@ -25,7 +21,7 @@ const sales = [
         title: "მარბანი",
         text: "თეთრი ღვინო რქაწითელი 2020…",
         price: "32₾",
-        sale: "36₾",
+        sale: "",
     },
     {
         id: 3,
@@ -41,7 +37,7 @@ const sales = [
         title: "ზედამო",
         text: "წითელი ღვინო ნატურალური საფერავი..",
         price: "24₾",
-        sale: "32₾",
+        sale: "",
     },
     {
         id: 5,
@@ -55,20 +51,7 @@ const sales = [
 
 function Index() {
     const [subMenu, setSubMenu] = useState(1);
-    const [favorites, setFavorites] = useState([]);
     const {trans} = translation();
-
-    useEffect(() => {
-        setFavorites(sales);
-    }, []);
-
-
-    function handleFavorite(id) {
-        const newFavorites = favorites.map(sale => {
-            return sale.id === id ? {...sale, favorite: !sale.favorite} : sale;
-        });
-        setFavorites(newFavorites);
-    }
 
 
     const handleClick = (id) => {
@@ -156,196 +139,33 @@ function Index() {
                     <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
-                <div className="store-production-cards">
-                    {favorites.map((sale,) => (
-                        <div
-                            key={sale.id}
-                            className="store-production-card"
-                        >
-                            <div className="store-production-card-img">
-                                <img src={sale.image} alt={sale.id}/>
-                                <div className="store-production-card-sale">
-                                    <Percent/>
-                                </div>
-                                <div className="store-production-card-hover">
-                                    <CardHover/>
-                                </div>
-                                <div className="store-production-add-to-favorites">
-                                    <div className="store-production-add-svg">
-                                        <span
-                                            onClick={() => {
-                                                handleFavorite(sale.id);
-                                            }}
-                                        >
-                                          {sale.favorite === true ? <Favorite/> : <AddFavorite/>}
-                                        </span>
-                                    </div>
 
-                                    {sale.favorite === true ? (
-                                        <span className="add-to-favorites-tooltip">{trans("removeFromFavorites")}</span>
-
-                                    ) : (
-                                        <span className="add-to-favorites-tooltip">{trans("addToFavorites")}</span>
-                                    )}
-
-                                </div>
-
-                            </div>
-                            <div className="store-production-card-title">
-                                <span>{sale.title}</span>
-                            </div>
-                            <div className="store-production-card-text">
-                                <span>{sale.text}</span>
-                            </div>
-                            <div className="store-production-card-price">
-                                <span>{sale.price}</span>
-                                <span>{sale.sale}</span>
-                            </div>
-                            <div className="store-production-card-add">
-                                <span><Add/></span>
-                                <span>{trans("addToCard")}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <StoreCard products={sales}/>
 
                 <div className="store-production-cards-title">
                     <span>{trans("wine")}</span>
                     <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
-                <div className="store-production-cards">
-                    {sales.map((sale) => (
-                        <div
-                            key={sale.id}
-                            className="store-production-card"
-                        >
-                            <div className="store-production-card-img">
-                                <img src={sale.image} alt={sale.id}/>
-                                {
-                                    sale.sale !== "" ?
-                                        (
-                                            <div className="store-production-card-sale">
-                                                <Percent/>
-                                            </div>
-                                        )
-                                        : null
-                                }
-                                <div className="store-production-card-hover">
-                                    <CardHover/>
-                                </div>
-                            </div>
-                            <div className="store-production-card-title">
-                                <span>{sale.title}</span>
-                            </div>
-                            <div className="store-production-card-text">
-                                <span>{sale.text}</span>
-                            </div>
-                            <div className="store-production-card-price">
-                                <span>{sale.price}</span>
-                                <span>{sale.sale}</span>
-                            </div>
-                            <div className="store-production-card-add">
-                                <span><Add/></span>
-                                <span>{trans("addToCard")}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+
+                <StoreCard products={sales}/>
+
                 <div className="store-production-cards-title">
                     <span>{trans("milkProducts")}</span>
                     <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
-                <div className="store-production-cards">
-                    {sales.map((sale) => (
-                        <div
-                            key={sale.id}
-                            className="store-production-card"
-                        >
-                            <div className="store-production-card-img">
-                                <img src={sale.image} alt={sale.id}/>
-                                {
-                                    sale.sale !== "" ?
-                                        (
-                                            <div className="store-production-card-sale">
-                                                <Percent/>
-                                            </div>
-                                        )
-                                        : null
-                                }
-                                <div className="store-production-card-hover">
-                                    <CardHover/>
-                                </div>
-                            </div>
-                            <div className="store-production-card-title">
-                                <span>{sale.title}</span>
-                            </div>
-                            <div className="store-production-card-text">
-                                <span>{sale.text}</span>
-                            </div>
-                            <div className="store-production-card-price">
-                                <span>{sale.price}</span>
-                                <span>{sale.sale}</span>
-                            </div>
-                            <div className="store-production-card-add">
-                                <span><Add/></span>
-                                <span>{trans("addToCard")}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+
+                <StoreCard products={sales}/>
+
                 <div className="store-production-cards-title">
                     <span>{trans("fruitsVegetables")}</span>
                     <span>{trans("fully")}</span>
                     <span><Arrow/></span>
                 </div>
-                <div className="store-production-cards">
-                    {sales.map((sale) => (
-                        <div
-                            key={sale.id}
-                            className="store-production-card"
-                        >
-                            <div className="store-production-card-img">
-                                <img src={sale.image} alt={sale.id}/>
-                                {
-                                    sale.sale !== "" ?
-                                        (
-                                            <div className="store-production-card-sale">
-                                                <Percent/>
-                                            </div>
-                                        )
-                                        : null
-                                }
-                                <div className="store-production-card-hover">
-                                    <CardHover/>
-                                </div>
-                            </div>
-                            <div className="store-production-card-title">
-                                <span>{sale.title}</span>
-                            </div>
-                            <div className="store-production-card-text">
-                                <span>{sale.text}</span>
-                            </div>
-                            <div className="store-production-card-price">
-                                <span>{sale.price}</span>
-                                <span>{sale.sale}</span>
-                            </div>
-                            <div className="store-production-card-add">
-                                <span><Add/></span>
-                                <span>{trans("addToCard")}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className="store-production-cards-title">
-                    <span>ფავორიტები</span>
-                </div>
-                <ul>
-                    {favorites.map(sale =>
-                        sale.favorite === true ? <li key={sale.id}>{sale.text}{sale.price}</li> : null
-                    )}
-                </ul>
+
+                <StoreCard products={sales}/>
+
             </div>
 
         </>
