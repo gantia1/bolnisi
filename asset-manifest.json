@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bolnisi/static/css/main.64a91b7e.css",
-    "main.js": "/bolnisi/static/js/main.4c21b2a0.js",
+    "main.css": "/bolnisi/static/css/main.608d38b1.css",
+    "main.js": "/bolnisi/static/js/main.59e58c42.js",
     "static/media/news-card.png": "/bolnisi/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/static/media/slide-img.c92c80a463b1612a583d.png",
     "static/media/news-card-1.png": "/bolnisi/static/media/news-card-1.a9a52a0af885f51c548d.png",
@@ -32,7 +32,6 @@
     "static/media/header-logo.svg": "/bolnisi/static/media/header-logo.6cdcefa8f1f6ccb5d49f576901a12230.svg",
     "static/media/region_logo.png": "/bolnisi/static/media/region_logo.0435d81f43fe7de888d5.png",
     "static/media/mini-map.png": "/bolnisi/static/media/mini-map.1571bccbba394435ba95.png",
-    "static/media/ka.svg": "/bolnisi/static/media/ka.9c4871d094607670511676aeec479c4f.svg",
     "static/media/mobile-menu.svg": "/bolnisi/static/media/mobile-menu.3fc00c9b03205a7ef117.svg",
     "static/media/production.svg": "/bolnisi/static/media/production.4d53adc1fe1bf0f11549f707a7b3c399.svg",
     "static/media/percentw.svg": "/bolnisi/static/media/percentw.8400635b3a43e8c7791bd131a73dfbcf.svg",
@@ -83,11 +82,11 @@
     "static/media/arrow.svg": "/bolnisi/static/media/arrow.f8e1235fc441b96b8d3ba2da91861ad7.svg",
     "static/media/card-hover.svg": "/bolnisi/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
-    "main.64a91b7e.css.map": "/bolnisi/static/css/main.64a91b7e.css.map",
-    "main.4c21b2a0.js.map": "/bolnisi/static/js/main.4c21b2a0.js.map"
+    "main.608d38b1.css.map": "/bolnisi/static/css/main.608d38b1.css.map",
+    "main.59e58c42.js.map": "/bolnisi/static/js/main.59e58c42.js.map"
   },
   "entrypoints": [
-    "static/css/main.64a91b7e.css",
-    "static/js/main.4c21b2a0.js"
+    "static/css/main.608d38b1.css",
+    "static/js/main.59e58c42.js"
   ]
 }
