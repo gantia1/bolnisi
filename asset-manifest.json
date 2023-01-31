@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bolnisi/static/css/main.b9c18f5a.css",
-    "main.js": "/bolnisi/static/js/main.99e2665e.js",
+    "main.css": "/bolnisi/static/css/main.64a91b7e.css",
+    "main.js": "/bolnisi/static/js/main.0e37cba5.js",
     "static/media/news-card.png": "/bolnisi/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/static/media/slide-img.c92c80a463b1612a583d.png",
     "static/media/news-card-1.png": "/bolnisi/static/media/news-card-1.a9a52a0af885f51c548d.png",
@@ -55,6 +55,7 @@
     "static/media/linkedin.svg": "/bolnisi/static/media/linkedin.25bffc726498595fd1d3a167ce7a5a46.svg",
     "static/media/refresh.svg": "/bolnisi/static/media/refresh.779889c5a0b0b6b2da084b80409f87d8.svg",
     "static/media/bottom-right-leaf.svg": "/bolnisi/static/media/bottom-right-leaf.a43db45af8a664571eb87901d3233b7a.svg",
+    "static/media/info.svg": "/bolnisi/static/media/info.fc2fa932b16f4c3f71190416f1e21c31.svg",
     "static/media/favorite.svg": "/bolnisi/static/media/favorite.b523406338eccd7e6b402c0954031120.svg",
     "static/media/calendar-today.svg": "/bolnisi/static/media/calendar-today.5e557bad4fb06d81f3a00f838860572a.svg",
     "static/media/top-right-leaf.svg": "/bolnisi/static/media/top-right-leaf.85bc97253ae42856b0a6093dd135f689.svg",
@@ -68,7 +69,9 @@
     "static/media/menu-circle.svg": "/bolnisi/static/media/menu-circle.73d9985e5df91631ddfe.svg",
     "static/media/calendar-future.svg": "/bolnisi/static/media/calendar-future.4e3d9e8cc83287cf3143c2980b2af0ff.svg",
     "static/media/location.svg": "/bolnisi/static/media/location.6e80d1721a20730210b4.svg",
+    "static/media/addition.svg": "/bolnisi/static/media/addition.9d7bc400b0d6cda7afb78b83c8d9c3d5.svg",
     "static/media/mail.svg": "/bolnisi/static/media/mail.37ce4e09e584346cf77786d62d6e9278.svg",
+    "static/media/subtraction.svg": "/bolnisi/static/media/subtraction.dec3639607d575e6740bbeafd4977f86.svg",
     "static/media/tiktok.svg": "/bolnisi/static/media/tiktok.87b3f753999c8aab20265c0845372d1c.svg",
     "static/media/facebook.svg": "/bolnisi/static/media/facebook.a37cf43c5e9339491227de5c6c35ccd3.svg",
     "static/media/checklist.svg": "/bolnisi/static/media/checklist.84974f7394bb121ae1cd4e5d5962e98d.svg",
@@ -80,11 +83,11 @@
     "static/media/arrow.svg": "/bolnisi/static/media/arrow.f8e1235fc441b96b8d3ba2da91861ad7.svg",
     "static/media/card-hover.svg": "/bolnisi/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
-    "main.b9c18f5a.css.map": "/bolnisi/static/css/main.b9c18f5a.css.map",
-    "main.99e2665e.js.map": "/bolnisi/static/js/main.99e2665e.js.map"
+    "main.64a91b7e.css.map": "/bolnisi/static/css/main.64a91b7e.css.map",
+    "main.0e37cba5.js.map": "/bolnisi/static/js/main.0e37cba5.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9c18f5a.css",
-    "static/js/main.99e2665e.js"
+    "static/css/main.64a91b7e.css",
+    "static/js/main.0e37cba5.js"
   ]
 }
