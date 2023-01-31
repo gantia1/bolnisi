@@ -1,10 +1,12 @@
 import {Drawer} from "antd";
 import {Link} from "react-router-dom";
-import {ReactComponent as Ge} from "../../../assets/images/svg/ka.svg";
 import {ReactComponent as Arrow} from "../../../assets/images/svg/arrow.svg";
 import {ReactComponent as LoginIcon} from "../../../assets/images/svg/account.svg";
 import {ReactComponent as Shopping} from "../../../assets/images/svg/shopping.svg";
 import {ReactComponent as Store} from "../../../assets/images/svg/store.svg";
+import Ka from "../../../assets/images/png/ka.png";
+import En from "../../../assets/images/png/en.png";
+import Ru from "../../../assets/images/png/ru.png";
 import Registration from "../../registration";
 import {useContext, useState} from "react";
 import translation from "../../../language/useTranslation";
@@ -21,9 +23,9 @@ function Index(props) {
         setIsModalOpen(true);
     };
     const languages = {
-        ka: <p onClick={() => setCurrentLanguage("ka")}><Ge/> <span> ქართული </span></p>,
-        en: <p onClick={() => setCurrentLanguage("en")}><Ge/> <span> English </span></p>,
-        ru: <p onClick={() => setCurrentLanguage("ru")}><Ge/> <span> Русский</span></p>,
+        ka: <span onClick={() => setCurrentLanguage("ka")}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
+        en: <span onClick={() => setCurrentLanguage("en")}><img src={En} alt="en"/> <p> English </p></span>,
+        ru: <span onClick={() => setCurrentLanguage("ru")}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
     }
     return (
         <>

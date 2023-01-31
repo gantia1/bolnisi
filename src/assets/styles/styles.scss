@@ -5,6 +5,7 @@
 
 //fonts
 $font-55-roman: "Helvetica Neue MT 55Roman";
+$font-55-roman-lt: "Helvetica Neue LT MT 55Roman";
 $font-65-roman: "Helvetica Neue LT 65Roman";
 $font-bold: "Helvetica Neue LT 75Bold";
 //colors
@@ -123,11 +124,12 @@ header {
   }
 
   .language {
-    min-width: 170px;
+    min-width: 200px;
     border: none;
     cursor: pointer;
     border-radius: 26px;
-    font-family: $font-55-roman;
+    font-size: 20px;
+    font-family: $font-55-roman-lt;
   }
 
   p {
@@ -139,6 +141,8 @@ header {
     display: inline-block;
     background-color: $grey;
     border-radius: 26px;
+    font-size: 20px;
+    font-family: $font-55-roman-lt;
 
     svg:last-child {
       position: absolute;
@@ -162,31 +166,37 @@ header {
     z-index: 1;
   }
 
-  .language-selection p {
+  .language-selection span {
     color: black;
     padding: 14px 16px;
     text-decoration: none;
-    display: block;
     cursor: pointer;
-    min-width: 170px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
   }
 
-  .language p:hover {
+  .language span:hover {
     background-color: $grey;
     border-radius: 16px 16px 0 0;
 
   }
 
-  .language span, .language-dropdown-content span {
+  .language img, .language-selection img {
+    width: 36px;
+    margin-right: 10px;
+  }
+
+  .language p, .language-dropdown-content p {
     margin: 0 5px;
   }
 
-  .language-dropdown-content p:hover {
+  .language-dropdown-content span:hover {
     background-color: $grey;
     transition: ease-out .3s;
   }
 
-  .language-dropdown-content p:last-child:hover {
+  .language-dropdown-content span:last-child:hover {
     border-radius: 0 0 20px 20px;
     transition: ease-out .3s;
   }
@@ -216,7 +226,7 @@ header {
   }
 
   .header-nav-list {
-    span {
+    p {
       cursor: pointer;
     }
 
@@ -236,6 +246,7 @@ header {
     font-weight: bold;
     min-width: 115px;
     text-align: center;
+    font-family: $font-bold;
 
     svg {
       vertical-align: bottom;
@@ -4172,11 +4183,18 @@ footer {
     font-family: $font-55-roman;
   }
 
+  .mobile-menu-language img, .mobile-menu-language-dropdown img {
+    width: 36px;
+    margin-right: 10px;
+  }
+
   .mobile-menu-language {
-    min-width: 170px;
+    min-width: 210px;
     border: none;
     cursor: pointer;
     border-radius: 26px;
+    font-size: 20px;
+    font-family: $font-55-roman-lt;
   }
 
   .language-selection-mobile-menu {
@@ -4201,31 +4219,34 @@ footer {
     display: none;
     position: absolute;
     border-radius: 0 0 20px 20px;
-    min-width: 170px;
+    min-width: 210px;
     z-index: 1;
+    font-size: 20px;
+    font-family: $font-55-roman-lt;
   }
 
-  .language-selection-mobile-menu p {
+  .language-selection-mobile-menu span {
     color: $dark-grey;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     cursor: pointer;
   }
 
-  .mobile-menu-language p:hover {
+  .mobile-menu-language span:hover {
     border-radius: 16px 16px 0 0;
   }
 
-  .mobile-menu-language span, .mobile-menu-language-dropdown span {
+  .mobile-menu-language p, .mobile-menu-language-dropdown p {
     margin: 0 5px;
   }
 
-  .mobile-menu-language-dropdown p:hover {
+  .mobile-menu-language-dropdown span:hover {
     transition: ease-out .3s;
   }
 
-  .mobile-menu-language-dropdown p:last-child:hover {
+  .mobile-menu-language-dropdown span:last-child:hover {
     border-radius: 0 0 20px 20px;
     transition: ease-out .3s;
   }
@@ -4238,7 +4259,7 @@ footer {
   .language-selection-mobile-menu svg:last-child {
     position: absolute;
     right: 15px;
-    top: 40%;
+    top: 45%;
   }
 
   .language-selection-mobile-menu svg path:last-child {
