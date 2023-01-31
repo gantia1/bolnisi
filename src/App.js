@@ -18,7 +18,7 @@ import Product from "./components/pages/product";
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route
                     path="/"
