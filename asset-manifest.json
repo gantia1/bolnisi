@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bolnisi/static/css/main.608d38b1.css",
-    "main.js": "/bolnisi/static/js/main.59e58c42.js",
+    "main.css": "/bolnisi/static/css/main.7199ee61.css",
+    "main.js": "/bolnisi/static/js/main.8e11c1b3.js",
     "static/media/news-card.png": "/bolnisi/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/static/media/slide-img.c92c80a463b1612a583d.png",
     "static/media/news-card-1.png": "/bolnisi/static/media/news-card-1.a9a52a0af885f51c548d.png",
@@ -41,6 +41,7 @@
     "static/media/registration-leaf.svg": "/bolnisi/static/media/registration-leaf.a84382a4a33fcd332482.svg",
     "static/media/store.svg": "/bolnisi/static/media/store.1f16f501b8162dc95122e81031ed0184.svg",
     "static/media/shopping.svg": "/bolnisi/static/media/shopping.702156f93de2578f26dbbbdd91b6dfc7.svg",
+    "static/media/shopping-menu.svg": "/bolnisi/static/media/shopping-menu.209c0f7b4e025682e200.svg",
     "static/media/shopping-1.svg": "/bolnisi/static/media/shopping-1.605de2fcde3b0cc4efd9e1e8da50a035.svg",
     "static/media/success-popup.svg": "/bolnisi/static/media/success-popup.995d1e46d57f3739dace7a7662a5b7d6.svg",
     "static/media/background.svg": "/bolnisi/static/media/background.63ab50a349c652e08794.svg",
@@ -57,6 +58,7 @@
     "static/media/info.svg": "/bolnisi/static/media/info.fc2fa932b16f4c3f71190416f1e21c31.svg",
     "static/media/favorite.svg": "/bolnisi/static/media/favorite.b523406338eccd7e6b402c0954031120.svg",
     "static/media/calendar-today.svg": "/bolnisi/static/media/calendar-today.5e557bad4fb06d81f3a00f838860572a.svg",
+    "static/media/close-cart.svg": "/bolnisi/static/media/close-cart.a1d816cb72df757bf33647b7f252c1cc.svg",
     "static/media/top-right-leaf.svg": "/bolnisi/static/media/top-right-leaf.85bc97253ae42856b0a6093dd135f689.svg",
     "static/media/sms.svg": "/bolnisi/static/media/sms.6ad55116fc4c590fed024a82c5b03f04.svg",
     "static/media/small-leaf-top.svg": "/bolnisi/static/media/small-leaf-top.5fe10646941a243bdf70.svg",
@@ -82,11 +84,11 @@
     "static/media/arrow.svg": "/bolnisi/static/media/arrow.f8e1235fc441b96b8d3ba2da91861ad7.svg",
     "static/media/card-hover.svg": "/bolnisi/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
-    "main.608d38b1.css.map": "/bolnisi/static/css/main.608d38b1.css.map",
-    "main.59e58c42.js.map": "/bolnisi/static/js/main.59e58c42.js.map"
+    "main.7199ee61.css.map": "/bolnisi/static/css/main.7199ee61.css.map",
+    "main.8e11c1b3.js.map": "/bolnisi/static/js/main.8e11c1b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.608d38b1.css",
-    "static/js/main.59e58c42.js"
+    "static/css/main.7199ee61.css",
+    "static/js/main.8e11c1b3.js"
   ]
 }
