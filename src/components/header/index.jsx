@@ -17,6 +17,7 @@ import MenuLogo from "../../assets/images/png/menu-text-img.png";
 import Registration from "../registration";
 import translation from "../../language/useTranslation";
 import {TranslationContext} from "../../contexts/TranslationContext";
+import Cart from "../mobile/cart";
 
 const langs = ['ka', 'en', 'ru']
 
@@ -24,14 +25,18 @@ function Index() {
     const location = useLocation();
     const [open, setOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isOpenCart, setIsOpenCart] = useState(false);
 
-    const {currentLanguage, setCurrentLanguage} = useContext(TranslationContext)
+    const {currentLanguage, setCurrentLanguage} = useContext(TranslationContext);
     const {trans} = translation();
     const showDrawer = () => {
         setOpen(true);
     };
     const showModal = () => {
         setIsModalOpen(true);
+    };
+    const showCart = () => {
+        setIsOpenCart(true);
     };
 
     const languages = {
@@ -107,7 +112,7 @@ function Index() {
                         className={location.pathname === "/online-store" ? 'pages-menu-text-logo-hide' : 'pages-menu-text-logo'}>
                         <img src={MenuLogo} alt="menu-logo"/>
                     </div>
-                    <div className="pages-mobile-menu-shopping">
+                    <div className="pages-mobile-menu-shopping" onClick={showCart}>
                         <span>2</span>
                         <span><Shopping/></span>
                     </div>
@@ -116,6 +121,7 @@ function Index() {
             }
             <MobileMenu open={open} close={() => setOpen(false)}/>
             <Registration open={isModalOpen} close={() => setIsModalOpen(false)}/>
+            <Cart open={isOpenCart} close={() => setIsOpenCart(false)}/>
         </>
     );
 }

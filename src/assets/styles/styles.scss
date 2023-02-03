@@ -232,8 +232,8 @@ header {
 
     .header-account:first-child {
       margin: 0 35px;
+      cursor: pointer;
     }
-
   }
 
   .header-store {
@@ -2577,10 +2577,18 @@ footer {
     width: 40%;
 
     .product-info-cellar-name {
-      font-size: 14px;
-      align-items: center;
-      display: flex;
-      column-gap: 12px;
+      font-size: 16px;
+      inline-size: fit-content;
+
+      a {
+        inline-size: fit-content;
+      }
+
+      span {
+        align-items: center;
+        display: flex;
+        column-gap: 12px;
+      }
 
       img {
         width: 40px;
@@ -3251,6 +3259,7 @@ footer {
   .menu-container {
     display: block;
     padding: 0;
+    margin-top: -30px;
 
     .menu-left-side {
       width: unset;
@@ -3269,6 +3278,7 @@ footer {
       .menu-img img {
         width: 100%;
         height: unset;
+        margin-top: 10px;
       }
 
       .menu-list {
@@ -3615,9 +3625,8 @@ footer {
   }
 
   //  home offers mobile
-
   .home-offers-container {
-    padding: 0 0 66px 27px;
+    padding: 0 0 83px 27px;
     position: relative;
     overflow: hidden;
 
@@ -3654,9 +3663,38 @@ footer {
     }
 
     .home-offers-second-card {
-      width: 100%;
+      width: 95%;
       max-width: 400px;
       padding-bottom: 20px;
+
+      .home-offers-registration h2 {
+        font-size: 20px;
+      }
+
+      .home-offers-event {
+        .event-date {
+          p {
+            font-size: 20px;
+          }
+
+          h1 {
+            font-size: 50px;
+          }
+        }
+
+        .event-details {
+          gap: 32px;
+
+          .event-locations h3 {
+            font-size: 18px;
+          }
+
+          .event-time {
+            width: unset;
+            font-size: 22px;
+          }
+        }
+      }
     }
   }
 
@@ -3673,7 +3711,7 @@ footer {
       flex-direction: column;
       align-items: start;
       gap: 0;
-      padding-left: 27px;
+      padding-left: 26px;
 
       ul {
         padding: 0;
@@ -3704,8 +3742,7 @@ footer {
     }
 
     .footer-mobile:nth-child(2) {
-      gap: 0 !important;
-      column-gap: 5px !important;
+      gap: 5px !important;
     }
 
     .footer-phone-number {
@@ -3939,7 +3976,9 @@ footer {
       }
     }
   }
-
+  .store-container {
+    padding-right: 0;
+  }
   .online-store-container {
     padding: 0;
     row-gap: 20px;
@@ -4061,6 +4100,19 @@ footer {
     }
   }
   //store cards mobile
+  .store-production-cards-title {
+    span:first-child {
+      font-size: 20px;
+    }
+
+    span:nth-child(2) {
+      display: none;
+    }
+
+    svg {
+      vertical-align: middle;
+    }
+  }
   .store-production-cards::-webkit-scrollbar {
     display: none;
   }
@@ -4079,20 +4131,6 @@ footer {
     .store-production-card-add {
       span:nth-child(2) {
         display: none;
-      }
-    }
-
-    .store-production-cards-title {
-      span:first-child {
-        font-size: 20px;
-      }
-
-      span:nth-child(2) {
-        display: none;
-      }
-
-      svg {
-        vertical-align: middle;
       }
     }
 
@@ -4370,6 +4408,162 @@ footer {
   bottom: -175px;
   right: -200px;
 }
+
+//mobile cart
+.mobile-cart {
+
+  .ant-drawer-header {
+    border: none;
+    position: relative;
+  }
+
+  .ant-drawer-body {
+    //overflow-y: unset;
+    overflow: unset;
+  }
+
+  .ant-drawer-header:before {
+    content: url("../images/svg/mobile-menu.svg");
+    position: absolute;
+    top: -120px;
+    left: -115px;
+    transform: rotate(185deg);
+  }
+
+  .ant-drawer-header:after {
+    content: url("../images/svg/shopping-menu.svg");
+    position: absolute;
+    top: 45px;
+    left: 40px;
+  }
+
+  .ant-drawer-title {
+    flex: 0;
+    z-index: 1;
+  }
+
+  .mobile-cart-container {
+    padding: 0 26px 100px;
+    color: $dark-grey;
+    margin-top: 100px;
+
+    .mobile-cart-title {
+      font-size: 20px;
+      font-family: $font-bold;
+
+      hr {
+        margin-top: 20px;
+        height: 1px;
+        background-color: #6C6C6C;
+        border: none;
+      }
+    }
+
+    .menu-cart-cards {
+      hr {
+        height: 1px;
+        background-color: #E2E2E2;
+        border: none;
+      }
+
+      hr:last-child {
+        height: 1px;
+        background-color: #6C6C6C;
+        border: none;
+      }
+
+      .menu-cart-card {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        font-family: $font-65-roman;
+        position: relative;
+
+      }
+
+      .menu-cart-card-image {
+        width: 25%;
+
+        img {
+          width: 100%;
+          min-width: 70px;
+          min-height: 70px;
+          object-fit: cover;
+          border-radius: 16px;
+        }
+      }
+
+      .menu-cart-card-title {
+        width: 100%;
+        padding: 0 10px;
+        font-size: 18px;
+        @media(max-width: 370px) {
+          font-size: 14px;
+        }
+      }
+
+      .menu-cart-card-price-quantity {
+        font-size: 24px;
+        @media(max-width: 370px) {
+          font-size: 18px;
+        }
+
+        .menu-cart-card-price {
+          position: absolute;
+          bottom: -10px;
+          right: 5px;
+
+          svg {
+            vertical-align: middle;
+            transform: translateY(-3px);
+
+          }
+
+          svg:first-child {
+            margin-right: 15px;
+          }
+
+          svg:nth-child(2) {
+            margin-left: 15px;
+          }
+        }
+
+        .meu-cart-card-quantity {
+          display: flex;
+        }
+      }
+    }
+
+    .mobile-cart-sum {
+      display: flex;
+      justify-content: end;
+      column-gap: 16px;
+      font-family: $font-65-roman;
+      align-items: center;
+
+      .mobile-cart-product-sum {
+        font-size: 18px;
+      }
+
+      .mobile-cart-price-sum {
+        color: $dark-green;
+        font-size: 32px;
+      }
+    }
+
+    .mobile-cart-button {
+      background-color: $dark-green;
+      color: $white;
+      text-align: center;
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 20px;
+      font-family: $font-bold;
+      margin: 40px 0 100px;
+    }
+  }
+}
+
 
 //admin contact
 

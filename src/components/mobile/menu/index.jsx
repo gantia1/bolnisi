@@ -11,16 +11,21 @@ import Registration from "../../registration";
 import {useContext, useState} from "react";
 import translation from "../../../language/useTranslation";
 import {TranslationContext} from "../../../contexts/TranslationContext";
+import Cart from "../cart";
 
 const langs = ['ka', 'en', 'ru']
 
 function Index(props) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isOpenCart, setIsOpenCart] = useState(false);
     const {currentLanguage, setCurrentLanguage} = useContext(TranslationContext)
     const {trans} = translation();
     const showModal = () => {
         setIsModalOpen(true);
+    };
+    const showCart = () => {
+        setIsOpenCart(true);
     };
     const languages = {
         ka: <span onClick={() => setCurrentLanguage("ka")}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
@@ -76,8 +81,8 @@ function Index(props) {
                             <LoginIcon/>
                             <span>{trans("loginRegistration")}</span>
                         </div>
-                        <div className="mobile-menu-shopping">
-                            <Shopping/><Link to="#">{trans("basket")}</Link>
+                        <div className="mobile-menu-shopping" onClick={showCart}>
+                            <Shopping/><span>{trans("basket")}</span>
                         </div>
                         <div className="mobile-menu-button">
                             <Link to="/store">
@@ -89,6 +94,8 @@ function Index(props) {
                 </div>
             </Drawer>
             <Registration open={isModalOpen} close={() => setIsModalOpen(false)}/>
+            <Cart open={isOpenCart} close={() => setIsOpenCart(false)}/>
+
         </>
     );
 }
