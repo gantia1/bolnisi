@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bolnisi/ka/static/css/main.feda0404.css",
-    "main.js": "/bolnisi/ka/static/js/main.d182eda2.js",
+    "main.js": "/bolnisi/ka/static/js/main.15e601d5.js",
     "static/media/news-card.png": "/bolnisi/ka/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/ka/static/media/slide-img.c92c80a463b1612a583d.png",
     "static/media/news-card-1.png": "/bolnisi/ka/static/media/news-card-1.a9a52a0af885f51c548d.png",
@@ -85,10 +85,10 @@
     "static/media/card-hover.svg": "/bolnisi/ka/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/ka/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
     "main.feda0404.css.map": "/bolnisi/ka/static/css/main.feda0404.css.map",
-    "main.d182eda2.js.map": "/bolnisi/ka/static/js/main.d182eda2.js.map"
+    "main.15e601d5.js.map": "/bolnisi/ka/static/js/main.15e601d5.js.map"
   },
   "entrypoints": [
     "static/css/main.feda0404.css",
-    "static/js/main.d182eda2.js"
+    "static/js/main.15e601d5.js"
   ]
 }
