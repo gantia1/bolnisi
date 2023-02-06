@@ -7,7 +7,7 @@ import {ReactComponent as AnnouncementIcon} from "../../assets/images/svg/announ
 import {ReactComponent as Arrow} from "../../assets/images/svg/arrow.svg";
 import {Link} from "react-router-dom";
 import HomeOffers from "../home-offers";
-import translation from "../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 function Index() {
     const news = [
@@ -43,12 +43,12 @@ function Index() {
                 "                                პოპულარიზაციას, როგორც ადგილობრივ, ისე საერთაშორისო დონეზე.",
         },
     ];
-    const {trans} = translation();
+    const {t} = useTranslation();
     return (
         <>
             <div className="home-news-container">
 
-                <span><h3>{trans("news")}</h3></span>
+                <span><h3>{t("news")}</h3></span>
 
                 <div className="home-news-cards">
 
@@ -79,7 +79,7 @@ function Index() {
                     <Link to="/news">
                         <div className={"all-news"}>
                             <div className={"all-news-arrow"}><Arrow/></div>
-                            <div className={"all-news-text"}>{trans("allNews")}</div>
+                            <div className={"all-news-text"}>{t("allNews")}</div>
                         </div>
                     </Link>
                 </div>

@@ -3,7 +3,7 @@ import {ReactComponent as ArrowForward} from "../../assets/images/svg/arrow-forw
 import {ReactComponent as Shopping} from "../../assets/images/svg/shopping-1.svg";
 import {ReactComponent as CardHover} from "../../assets/images/svg/card-hover.svg";
 import RightLeaf from "../../assets/images/png/bottom-right-leaf.png";
-import translation from "../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 function Index() {
     const offers = [
@@ -32,12 +32,12 @@ function Index() {
             oldPrice: "23₾"
         },
     ];
-    const {trans} = translation();
+    const {t} = useTranslation();
 
     return (
         <div className="home-offers-container">
 
-            <span className=""><h3>{trans("offers")}</h3></span>
+            <span className=""><h3>{t("offers")}</h3></span>
 
             <div className="home-offers">
 
@@ -76,7 +76,7 @@ function Index() {
 
 
                     <div className="home-offers-registration">
-                        <h2>{trans("registration")}</h2> <ArrowForward/>
+                        <h2>{t("registration")}</h2> <ArrowForward/>
                     </div>
                     <div className="home-offers-right-leaf">
                         <img src={RightLeaf} alt=""/>

@@ -1,4 +1,3 @@
-import translation from "../../language/useTranslation";
 import {useNavigate} from "react-router-dom";
 import {ReactComponent as Add} from "../../assets/images/svg/shopping-1.svg";
 import {ReactComponent as Percent} from "../../assets/images/svg/percentw.svg";
@@ -6,9 +5,10 @@ import {ReactComponent as CardHover} from "../../assets/images/svg/card-hover.sv
 import React, {useEffect, useState} from "react";
 import {ReactComponent as Favorite} from "../../assets/images/svg/favorite.svg";
 import {ReactComponent as AddFavorite} from "../../assets/images/svg/add-favorite.svg";
+import {useTranslation} from "react-i18next";
 
 function Index({products}) {
-    const {trans} = translation();
+    const {t} = useTranslation();
     const navigate = useNavigate();
     const [favorites, setFavorites] = useState([]);
 
@@ -59,10 +59,10 @@ function Index({products}) {
                             </div>
 
                             {product.favorite === true ? (
-                                <span className="add-to-favorites-tooltip">{trans("removeFromFavorites")}</span>
+                                <span className="add-to-favorites-tooltip">{t("removeFromFavorites")}</span>
 
                             ) : (
-                                <span className="add-to-favorites-tooltip">{trans("addToFavorites")}</span>
+                                <span className="add-to-favorites-tooltip">{t("addToFavorites")}</span>
                             )}
 
                         </div>
@@ -80,7 +80,7 @@ function Index({products}) {
                     </div>
                     <div className="store-production-card-add">
                         <span><Add/></span>
-                        <span>{trans("addToCard")}</span>
+                        <span>{t("addToCard")}</span>
                     </div>
                 </div>
             ))}

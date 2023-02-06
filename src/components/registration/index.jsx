@@ -4,14 +4,14 @@ import {ReactComponent as Sms} from "../../assets/images/svg/sms.svg";
 import {ReactComponent as Refresh} from "../../assets/images/svg/refresh.svg";
 import {ReactComponent as Success} from "../../assets/images/svg/success-popup.svg";
 import InputCode from "react-code-input";
-import translation from "../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 function Index(props) {
     const [activeTab, setActiveTab] = useState(1);
     const [completedStep, setCompletedStep] = useState(1);
     const [completedStepLegal, setCompletedStepLegal] = useState(1);
     const [loading, setLoading] = useState(0);
-    const {trans} = translation();
+    const {t} = useTranslation();
 
     useEffect(() => {
         loading > 0
@@ -55,10 +55,10 @@ function Index(props) {
                             <div className="success-popup-svg"></div>
                             <div className="success-popup-text">
                                 <span><Success/></span>
-                                <span>{trans("successRegistration")}</span>
+                                <span>{t("successRegistration")}</span>
                             </div>
                             <div className="success-popup-button" onClick={() => handleClickClose(1)}>
-                                <span>{trans("close")}</span></div>
+                                <span>{t("close")}</span></div>
                         </div>
                     </div>
                 ) : (
@@ -67,18 +67,18 @@ function Index(props) {
 
                             <div className="registration-header">
                                 <div className="registration-title">
-                                    <span>{trans("registration")}</span>
+                                    <span>{t("registration")}</span>
                                 </div>
                                 <div className="registration-tab">
                         <span
                             className={` ${activeTab === 1 && 'active'}`}
                             onClick={() => handleClick(1)}>
-                            {trans("naturalPerson")}
+                            {t("naturalPerson")}
                         </span>
                                     <span
                                         className={` ${activeTab === 2 && 'active'}`}
                                         onClick={() => handleClick(2)}>
-                            {trans("legalEntity")}
+                            {t("legalEntity")}
                         </span>
                                 </div>
 
@@ -101,14 +101,14 @@ function Index(props) {
                                                     ]}>
                                                     <Input
                                                         bordered={false}
-                                                        placeholder={trans("nameLastname")}
+                                                        placeholder={t("nameLastname")}
                                                     />
                                                 </Form.Item>
 
                                                 <Form.Item>
                                                     <Select
                                                         showSearch
-                                                        placeholder={trans("country")}
+                                                        placeholder={t("country")}
                                                         optionFilterProp="children"
                                                         filterOption={(input, option) =>
                                                             (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
@@ -122,7 +122,7 @@ function Index(props) {
                                                 >
                                                     <Input
                                                         bordered={false}
-                                                        placeholder={trans("email")}
+                                                        placeholder={t("email")}
                                                     />
                                                 </Form.Item>
 
@@ -137,7 +137,7 @@ function Index(props) {
                                                     ]}>
                                                     <InputNumber
                                                         bordered={false}
-                                                        placeholder={trans("phoneNumber")}
+                                                        placeholder={t("phoneNumber")}
                                                         controls={false}
                                                     />
                                                 </Form.Item>
@@ -147,7 +147,7 @@ function Index(props) {
                                                                 setLoading(30);
                                                                 handleIdIncrease()
                                                             }}>
-                                                        <Sms/> {trans("sendTheCode")}
+                                                        <Sms/> {t("sendTheCode")}
                                                     </button>
                                                 </Form.Item>
                                             </Form>
@@ -155,7 +155,7 @@ function Index(props) {
                                         ) : completedStep === 2 ? (
                                             <div className="registration-phone-number">
                                                 <div className="registration-phone-number-text">
-                                                    {trans("smsCode")}
+                                                    {t("smsCode")}
                                                 </div>
                                                 <div className="registration-phone-number-input-code">
                                                     <InputCode
@@ -178,12 +178,12 @@ function Index(props) {
                                                             onClick={() => setLoading(30)}>
                                                             <span className={`resend-sms ${loading > 0 && 'loading'}`}
                                                             ><Refresh/></span>
-                                                            {trans("sendCode")}</span>
+                                                            {t("sendCode")}</span>
                                                     </div>
                                                 </div>
                                                 <div className="registration-phone-number-button"
                                                      onClick={handleIdIncrease}>
-                                                    <span>{trans("confirmation")}</span>
+                                                    <span>{t("confirmation")}</span>
                                                 </div>
                                             </div>
                                         ) : completedStep === 3 ? (
@@ -210,7 +210,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder={trans("password")}
+                                                                placeholder={t("password")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -233,7 +233,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder={trans("repeatPassword")}
+                                                                placeholder={t("repeatPassword")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -243,7 +243,7 @@ function Index(props) {
                                                             className="registration-repeat-password-confirm"
                                                             onClick={handleIdIncrease}
                                                         >
-                                                            <span>{trans("registration")}</span>
+                                                            <span>{t("registration")}</span>
                                                         </div>
                                                     </Form.Item>
                                                 </Form>
@@ -296,7 +296,7 @@ function Index(props) {
                                                     ]}>
                                                     <Input
                                                         bordered={false}
-                                                        placeholder={trans("legalEntityName")}
+                                                        placeholder={t("legalEntityName")}
                                                     />
                                                 </Form.Item>
                                                 <Form.Item
@@ -310,7 +310,7 @@ function Index(props) {
                                                     ]}>
                                                     <InputNumber
                                                         bordered={false}
-                                                        placeholder={trans("IdentificationNumber")}
+                                                        placeholder={t("IdentificationNumber")}
                                                         controls={false}
                                                     />
                                                 </Form.Item>
@@ -320,7 +320,7 @@ function Index(props) {
                                                 >
                                                     <Input
                                                         bordered={false}
-                                                        placeholder={trans("email")}
+                                                        placeholder={t("email")}
                                                     />
                                                 </Form.Item>
                                                 <Form.Item
@@ -334,7 +334,7 @@ function Index(props) {
                                                     ]}>
                                                     <InputNumber
                                                         bordered={false}
-                                                        placeholder={trans("phoneNumber")}
+                                                        placeholder={t("phoneNumber")}
                                                         controls={false}
                                                     />
                                                 </Form.Item>
@@ -344,14 +344,14 @@ function Index(props) {
                                                                 setLoading(30);
                                                                 handleIdIncreaseLegal()
                                                             }}>
-                                                        <Sms/> {trans("sendTheCode")}
+                                                        <Sms/> {t("sendTheCode")}
                                                     </button>
                                                 </Form.Item>
                                             </Form>
                                         ) : completedStepLegal === 2 ? (
                                             <div className="registration-phone-number">
                                                 <div className="registration-phone-number-text">
-                                                    {trans("smsCode")}
+                                                    {t("smsCode")}
                                                 </div>
                                                 <div className="registration-phone-number-input-code">
                                                     <InputCode
@@ -373,12 +373,12 @@ function Index(props) {
                                                             onClick={() => setLoading(30)}>
                                                             <span className={`resend-sms ${loading > 0 && 'loading'}`}
                                                             ><Refresh/></span>
-                                                            {trans("sendCode")}</span>
+                                                            {t("sendCode")}</span>
                                                     </div>
                                                 </div>
                                                 <div className="registration-phone-number-button"
                                                      onClick={handleIdIncreaseLegal}>
-                                                    <span>{trans("confirmation")}</span>
+                                                    <span>{t("confirmation")}</span>
                                                 </div>
                                             </div>
                                         ) : completedStepLegal === 3 ? (
@@ -399,7 +399,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder={trans("password")}
+                                                                placeholder={t("password")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -422,7 +422,7 @@ function Index(props) {
                                                             ]}
                                                         >
                                                             <Input.Password
-                                                                placeholder={trans("repeatPassword")}
+                                                                placeholder={t("repeatPassword")}
                                                                 visibilityToggle={false}
                                                             />
                                                         </Form.Item>
@@ -432,7 +432,7 @@ function Index(props) {
                                                             className="registration-repeat-password-confirm"
                                                             onClick={handleIdIncrease}
                                                         >
-                                                            <span>{trans("registration")}</span>
+                                                            <span>{t("registration")}</span>
                                                         </div>
                                                     </Form.Item>
                                                 </Form>

@@ -9,11 +9,11 @@ import {ReactComponent as Yellow} from "../../assets/images/svg/yellow.svg";
 import {ReactComponent as LeafRight} from "../../assets/images/svg/small-leaf-right.svg";
 import {ReactComponent as LeafLeft} from "../../assets/images/svg/small-leaf-left.svg";
 import {ReactComponent as TopRightLeaf} from "../../assets/images/svg/top-right-leaf.svg";
-import translation from "../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 function Index() {
-    const {trans} = translation();
-    
+    const {t} = useTranslation();
+
     return (
 
         <div className="menu-container">
@@ -32,7 +32,7 @@ function Index() {
 
                 <div className="menu-store-button">
                     <Link to="/store">
-                        <button><Store/>{trans("shop")}</button>
+                        <button><Store/>{t("shop")}</button>
                     </Link>
                 </div>
             </div>

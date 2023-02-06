@@ -4,7 +4,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {ReactComponent as Addition} from "../../../assets/images/svg/addition.svg";
 import {ReactComponent as Subtraction} from "../../../assets/images/svg/subtraction.svg";
 import React, {useEffect, useState} from "react";
-import translation from "../../../language/useTranslation";
 import {ReactComponent as Add} from "../../../assets/images/svg/shopping-1.svg";
 import {ReactComponent as Info} from "../../../assets/images/svg/info.svg";
 import {ReactComponent as Percent} from "../../../assets/images/svg/percentw.svg";
@@ -12,6 +11,8 @@ import {ReactComponent as Favorite} from "../../../assets/images/svg/favorite.sv
 import {ReactComponent as AddFavorite} from "../../../assets/images/svg/add-favorite.svg";
 import StoreCard from "../../store-card";
 import salesImage from "../../../assets/images/png/offers-img.png";
+import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const products = [
     {
@@ -54,7 +55,7 @@ function Index() {
     const [count, setCount] = useState(1);
     const [favorites, setFavorites] = useState([]);
 
-    const {trans} = translation();
+    const {t} = useTranslation();
 
     useEffect(() => {
         setFavorites(products);
@@ -104,10 +105,10 @@ function Index() {
                                     </div>
 
                                     {product.favorite === true ? (
-                                        <span className="add-to-favorites-tooltip">{trans("removeFromFavorites")}</span>
+                                        <span className="add-to-favorites-tooltip">{t("removeFromFavorites")}</span>
 
                                     ) : (
-                                        <span className="add-to-favorites-tooltip">{trans("addToFavorites")}</span>
+                                        <span className="add-to-favorites-tooltip">{t("addToFavorites")}</span>
                                     )}
 
                                 </div>
@@ -129,10 +130,10 @@ function Index() {
                                     </div>
 
                                     {product.favorite === true ? (
-                                        <span className="add-to-favorites-tooltip">{trans("removeFromFavorites")}</span>
+                                        <span className="add-to-favorites-tooltip">{t("removeFromFavorites")}</span>
 
                                     ) : (
-                                        <span className="add-to-favorites-tooltip">{trans("addToFavorites")}</span>
+                                        <span className="add-to-favorites-tooltip">{t("addToFavorites")}</span>
                                     )}
 
                                 </div>
@@ -154,10 +155,10 @@ function Index() {
                                     </div>
 
                                     {product.favorite === true ? (
-                                        <span className="add-to-favorites-tooltip">{trans("removeFromFavorites")}</span>
+                                        <span className="add-to-favorites-tooltip">{t("removeFromFavorites")}</span>
 
                                     ) : (
-                                        <span className="add-to-favorites-tooltip">{trans("addToFavorites")}</span>
+                                        <span className="add-to-favorites-tooltip">{t("addToFavorites")}</span>
                                     )}
 
                                 </div>
@@ -170,9 +171,14 @@ function Index() {
                 <div className="product-info">
 
                     <div className="product-info-cellar-name">
-                        <img src={ProductImage} alt=""/>
-                        <span>ლუკას მარანი</span>
+                        <Link to="/online-store">
+                            <span>
+                            <img src={ProductImage} alt=""/>
+                            ლუკას მარანი
+                            </span>
+                        </Link>
                     </div>
+
                     <div className="product-info-title">
                         <span>წითელი ღვინო ნატურალური საფერავი მშრალი</span>
                     </div>
@@ -197,25 +203,25 @@ function Index() {
 
                     <div className="product-info-add">
                         <span><Add/></span>
-                        <span>{trans("addToCard")}</span>
+                        <span>{t("addToCard")}</span>
                     </div>
 
                     <div className="product-additional-info-title">
                         <span><Info/></span>
-                        <span>{trans("additionalInfo")}</span>
+                        <span>{t("additionalInfo")}</span>
                     </div>
 
                     <div className="product-additional-info-container">
                         <div className="product-additional-info">
-                            <span>{trans("capacity")}</span>
+                            <span>{t("capacity")}</span>
                             <span>750მლ</span>
                         </div>
                         <div className="product-additional-info">
-                            <span>{trans("year")}</span>
+                            <span>{t("year")}</span>
                             <span>2020</span>
                         </div>
                         <div className="product-additional-info">
-                            <span>{trans("alcoholVol")}</span>
+                            <span>{t("alcoholVol")}</span>
                             <span>13</span>
                         </div>
 

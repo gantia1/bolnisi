@@ -1,5 +1,5 @@
 import {Drawer} from "antd";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {ReactComponent as Arrow} from "../../../assets/images/svg/arrow.svg";
 import {ReactComponent as LoginIcon} from "../../../assets/images/svg/account.svg";
 import {ReactComponent as Shopping} from "../../../assets/images/svg/shopping.svg";
@@ -8,10 +8,9 @@ import Ka from "../../../assets/images/png/ka.png";
 import En from "../../../assets/images/png/en.png";
 import Ru from "../../../assets/images/png/ru.png";
 import Registration from "../../registration";
-import {useContext, useState} from "react";
-import translation from "../../../language/useTranslation";
-import {TranslationContext} from "../../../contexts/TranslationContext";
+import {useState} from "react";
 import Cart from "../cart";
+import {useTranslation} from "react-i18next";
 
 const langs = ['ka', 'en', 'ru']
 
@@ -19,8 +18,18 @@ function Index(props) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpenCart, setIsOpenCart] = useState(false);
-    const {currentLanguage, setCurrentLanguage} = useContext(TranslationContext)
-    const {trans} = translation();
+    const {t, i18n, i18n: {language}} = useTranslation();
+
+    const {pathname, search, hash} = useLocation();
+
+    const switcher = (lng) => () => {
+        if (lng !== language) {
+            i18n.changeLanguage(lng)
+            window.location.replace(
+                `/${lng}${pathname}${search}${hash}`
+            )
+        }
+    }
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -28,9 +37,9 @@ function Index(props) {
         setIsOpenCart(true);
     };
     const languages = {
-        ka: <span onClick={() => setCurrentLanguage("ka")}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
-        en: <span onClick={() => setCurrentLanguage("en")}><img src={En} alt="en"/> <p> English </p></span>,
-        ru: <span onClick={() => setCurrentLanguage("ru")}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
+        ka: <span onClick={switcher('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
+        en: <span onClick={switcher('en')}><img src={En} alt="en"/> <p> English </p></span>,
+        ru: <span onClick={switcher('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
     }
     return (
         <>
@@ -41,11 +50,11 @@ function Index(props) {
 
                     <div className="language-selection-mobile-menu">
                         <div className="mobile-menu-language">
-                            {languages[currentLanguage]}<Arrow className="arrow"/>
+                            {languages[language]}<Arrow className="arrow"/>
                         </div>
                         <div className="mobile-menu-language-dropdown">
                             {langs.map((lang) => {
-                                if (lang !== currentLanguage) {
+                                if (lang !== language) {
                                     return languages[lang]
                                 }
                             })}
@@ -55,22 +64,22 @@ function Index(props) {
                     <div className="mobile-menu-list-items">
                         <ul>
                             <Link to="/">
-                                <li onClick={props.close}><p>{trans("main")}</p><Arrow/></li>
+                                <li onClick={props.close}><p>{t("main")}</p><Arrow/></li>
                             </Link>
                             <Link to="/news">
-                                <li onClick={props.close}><p>{trans("news")}</p><Arrow/></li>
+                                <li onClick={props.close}><p>{t("news")}</p><Arrow/></li>
                             </Link>
                             <Link to="/about-us">
-                                <li onClick={props.close}><p>{trans("aboutUs")}</p><Arrow/></li>
+                                <li onClick={props.close}><p>{t("aboutUs")}</p><Arrow/></li>
                             </Link>
                             <Link to="#">
-                                <li onClick={props.close}><p>{trans("municipality")}</p><Arrow/></li>
+                                <li onClick={props.close}><p>{t("municipality")}</p><Arrow/></li>
                             </Link>
                             <Link to="#">
-                                <li onClick={props.close}><p>{trans("termsConditions")}</p><Arrow/></li>
+                                <li onClick={props.close}><p>{t("termsConditions")}</p><Arrow/></li>
                             </Link>
                             <Link to="/contact">
-                                <li onClick={props.close}><p>{trans("contact")}</p><Arrow/></li>
+                                <li onClick={props.close}><p>{t("contact")}</p><Arrow/></li>
                             </Link>
 
                         </ul>
@@ -79,14 +88,14 @@ function Index(props) {
                     <div className="mobile-menu-bottom">
                         <div className="mobile-menu-registration" onClick={showModal}>
                             <LoginIcon/>
-                            <span>{trans("loginRegistration")}</span>
+                            <span>{t("loginRegistration")}</span>
                         </div>
                         <div className="mobile-menu-shopping" onClick={showCart}>
-                            <Shopping/><span>{trans("basket")}</span>
+                            <Shopping/><span>{t("basket")}</span>
                         </div>
                         <div className="mobile-menu-button">
                             <Link to="/store">
-                                <button onClick={props.close}><Store/>{trans("shop")}</button>
+                                <button onClick={props.close}><Store/>{t("shop")}</button>
                             </Link>
                         </div>
                     </div>

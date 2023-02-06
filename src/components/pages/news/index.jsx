@@ -15,7 +15,7 @@ import NewsImageSixth from "../../../assets/images/png/news-image-5.png";
 import NewsImageSeventh from "../../../assets/images/png/news-image-6.png";
 import NewsImageEighth from "../../../assets/images/png/menu-image1.png";
 import {Pagination} from "antd";
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {ReactComponent as SearchIcon} from "../../../assets/images/svg/search.svg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -23,8 +23,7 @@ import {ReactComponent as CalendarFuture} from "../../../assets/images/svg/calen
 import MaskedInput from 'react-text-mask'
 import Dropdown from "../../dropdown";
 import {useNavigate} from "react-router-dom";
-import {TranslationContext} from "../../../contexts/TranslationContext";
-import translation from "../../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 
 function Index() {
@@ -117,7 +116,6 @@ function Index() {
     const [activeTab, setActiveTab] = useState(1);
     const [selected, setSelected] = useState("ყველა");
     const [searchData, setSearchData] = useState();
-    const {currentLanguage} = useContext(TranslationContext);
 
     const [data, setData] = useState({
         startDate: new Date("01/01/2022"),
@@ -126,7 +124,7 @@ function Index() {
 
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
-    const {trans} = translation();
+    const {t, i18n: {language}} = useTranslation();
 
     let newsCategory = news.filter(news => news.category === "სიახლე");
     let eventCategory = news.filter(news => news.category === "ღონისძიება");
@@ -201,15 +199,15 @@ function Index() {
                 <div className="news-filter-desktop">
                     <div className="news-filter-list">
                           <span className={` ${activeTab === 1 && 'active'}`}
-                                onClick={() => handleClick(1, news)}><All/>{trans("all")}</span>
+                                onClick={() => handleClick(1, news)}><All/>{t("all")}</span>
                         <span className={` ${activeTab === 2 && 'active'}`}
-                              onClick={() => handleClick(2, newsCategory)}><Calendar/>{trans("news")}</span>
+                              onClick={() => handleClick(2, newsCategory)}><Calendar/>{t("news")}</span>
                         <span className={` ${activeTab === 3 && 'active'}`}
-                              onClick={() => handleClick(3, eventCategory)}><CalendarToday/>{trans("events")}</span>
+                              onClick={() => handleClick(3, eventCategory)}><CalendarToday/>{t("events")}</span>
                         <span className={` ${activeTab === 4 && 'active'}`}
-                              onClick={() => handleClick(4, saleCategory)}><Percent/>{trans("discounts")}</span>
+                              onClick={() => handleClick(4, saleCategory)}><Percent/>{t("discounts")}</span>
                         <span className={` ${activeTab === 5 && 'active'}`}
-                              onClick={() => handleClick(5, announcementCategory)}><Announcement/>{trans("statements")}</span>
+                              onClick={() => handleClick(5, announcementCategory)}><Announcement/>{t("statements")}</span>
                     </div>
                 </div>
 
@@ -241,7 +239,7 @@ function Index() {
                             />
                             <span className="news-today-calendar"><CalendarToday/></span>
                         </li>
-                        <li className={`news-date-search news-start-date${'-' + currentLanguage}`}>
+                        <li className={`news-date-search news-start-date${'-' + language}`}>
                             <DatePicker
                                 dateFormat="dd/MM/yyyy"
                                 selected={data.startDate}
@@ -254,7 +252,7 @@ function Index() {
                             />
                             <span className="news-today-calendar"><CalendarToday/></span>
                         </li>
-                        <li className={`news-date-search news-end-date${'-' + currentLanguage}`}>
+                        <li className={`news-date-search news-end-date${'-' + language}`}>
                             <DatePicker
                                 dateFormat="dd/MM/yyyy"
                                 selected={data.endDate}
@@ -271,7 +269,7 @@ function Index() {
                         <li
                             className="news-date-search news-search-input"
                         >
-                            <input placeholder={trans("searchWord")}
+                            <input placeholder={t("searchWord")}
                                    onChange={filterBySearch}
                                    onKeyPress={event => {
                                        if (event.key === 'Enter') {

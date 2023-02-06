@@ -2,10 +2,10 @@ import AboutUs from "../../../assets/images/png/about-us.png";
 import AboutUs1 from "../../../assets/images/png/about-us1.png";
 import {ReactComponent as Phone} from "../../../assets/images/svg/call.svg";
 import {ReactComponent as Mail} from "../../../assets/images/svg/mail.svg";
-import translation from "../../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 function Index() {
-    const {trans} = translation();
+    const {t} = useTranslation();
     const structure = [
         {
             id: 1,
@@ -72,7 +72,7 @@ function Index() {
 
                 <div className="about-us-left-side">
                     <div className="about-us-title">
-                        <span>{trans("aboutUs")}</span>
+                        <span>{t("aboutUs")}</span>
                     </div>
                     <div className="about-us-text">
                         <p>
@@ -85,7 +85,7 @@ function Index() {
                         </p>
                     </div>
                     <div className="about-us-title">
-                        <span>{trans("missionVision")}</span>
+                        <span>{t("missionVision")}</span>
                     </div>
                     <div className="about-us-text">
                         <p>
@@ -116,7 +116,7 @@ function Index() {
             <div className="about-us-structure">
 
                 <div className="about-us-title">
-                    <span>{trans("structure")}</span>
+                    <span>{t("structure")}</span>
                 </div>
 
                 <div className="about-us-structure-cards">
@@ -152,7 +152,7 @@ function Index() {
 
             <div className="about-us-values">
                 <div className="about-us-title">
-                    <span>{trans("values")}</span>
+                    <span>{t("values")}</span>
                 </div>
                 <div className="about-us-values-cards">
 

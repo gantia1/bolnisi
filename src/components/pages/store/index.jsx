@@ -3,8 +3,8 @@ import {ReactComponent as Arrow} from "../../../assets/images/svg/arrow.svg";
 import {ReactComponent as Production} from "../../../assets/images/svg/production.svg";
 import salesImage from "../../../assets/images/png/offers-img.png";
 import {useState} from "react";
-import translation from "../../../language/useTranslation";
 import StoreCard from "../../store-card";
+import {useTranslation} from "react-i18next";
 
 const sales = [
     {
@@ -51,7 +51,7 @@ const sales = [
 
 function Index() {
     const [subMenu, setSubMenu] = useState(1);
-    const {trans} = translation();
+    const {t} = useTranslation();
 
 
     const handleClick = (id) => {
@@ -65,33 +65,33 @@ function Index() {
             <div className="store-container">
 
                 <div className="store-production-dropdown">
-                    <span className="store-production-title"><Production/>{trans("production")}</span>
+                    <span className="store-production-title"><Production/>{t("production")}</span>
 
                     <div className="store-list">
                         <div className="store-production-dropdown-left">
                             <div className="store-production-items">
                                 <div className="store-production-title store-production-title-dropdown">
-                                    <Production/>{trans("production")}
+                                    <Production/>{t("production")}
                                 </div>
                                 <ul>
                                     <li className={`store-category ${subMenu === 1 && 'active'}`}
                                         onMouseOver={() => handleClick(1)}>
-                                        <p>{trans("wine")}</p>
+                                        <p>{t("wine")}</p>
                                         <Arrow/>
                                     </li>
                                     <li className={`store-category ${subMenu === 2 && 'active'}`}
                                         onMouseOver={() => handleClick(2)}>
-                                        <p>{trans("milkProducts")}</p>
+                                        <p>{t("milkProducts")}</p>
                                         <Arrow/>
                                     </li>
                                     <li className={`store-category ${subMenu === 3 && 'active'}`}
                                         onMouseOver={() => handleClick(3)}>
-                                        <p>{trans("fruitsVegetables")}</p>
+                                        <p>{t("fruitsVegetables")}</p>
                                         <Arrow/>
                                     </li>
                                     <li className={`store-category ${subMenu === 4 && 'active'}`}
                                         onMouseOver={() => handleClick(4)}>
-                                        <p>{trans("other")}</p>
+                                        <p>{t("other")}</p>
                                         <Arrow/>
                                     </li>
                                 </ul>
@@ -100,33 +100,33 @@ function Index() {
                         <div className="store-production-dropdown-right">
                             {subMenu === 1 ? (
                                 <ul>
-                                    <li>{trans("red")}</li>
-                                    <li>{trans("white")}</li>
-                                    <li>{trans("dry")}</li>
-                                    <li>{trans("factory")}</li>
-                                    <li>{trans("familyCellar")}</li>
-                                    <li>{trans("ofThePitcher")}</li>
+                                    <li>{t("red")}</li>
+                                    <li>{t("white")}</li>
+                                    <li>{t("dry")}</li>
+                                    <li>{t("factory")}</li>
+                                    <li>{t("familyCellar")}</li>
+                                    <li>{t("ofThePitcher")}</li>
                                 </ul>
                             ) : subMenu === 2 ? (
                                 <ul>
-                                    <li>{trans("milk")}</li>
-                                    <li>{trans("milk")}</li>
-                                    <li>{trans("milk")}</li>
-                                    <li>{trans("milk")}</li>
-                                    <li>{trans("milk")}</li>
+                                    <li>{t("milk")}</li>
+                                    <li>{t("milk")}</li>
+                                    <li>{t("milk")}</li>
+                                    <li>{t("milk")}</li>
+                                    <li>{t("milk")}</li>
 
                                 </ul>
                             ) : subMenu === 3 ? (
                                 <ul>
-                                    <li>{trans("fruit")}</li>
-                                    <li>{trans("fruit")}</li>
-                                    <li>{trans("fruit")}</li>
-                                    <li>{trans("fruit")}</li>
+                                    <li>{t("fruit")}</li>
+                                    <li>{t("fruit")}</li>
+                                    <li>{t("fruit")}</li>
+                                    <li>{t("fruit")}</li>
                                 </ul>
                             ) : subMenu === 4 ? (
                                 <ul>
-                                    <li>{trans("other")}</li>
-                                    <li>{trans("other")}</li>
+                                    <li>{t("other")}</li>
+                                    <li>{t("other")}</li>
                                 </ul>
                             ) : null}
                         </div>
@@ -135,32 +135,32 @@ function Index() {
                 </div>
 
                 <div className="store-production-cards-title store-production-sale">
-                    <span>{trans("discountedProducts")}</span>
-                    <span>{trans("fully")}</span>
+                    <span>{t("discountedProducts")}</span>
+                    <span>{t("fully")}</span>
                     <span><Arrow/></span>
                 </div>
 
                 <StoreCard products={sales}/>
 
                 <div className="store-production-cards-title">
-                    <span>{trans("wine")}</span>
-                    <span>{trans("fully")}</span>
+                    <span>{t("wine")}</span>
+                    <span>{t("fully")}</span>
                     <span><Arrow/></span>
                 </div>
 
                 <StoreCard products={sales}/>
 
                 <div className="store-production-cards-title">
-                    <span>{trans("milkProducts")}</span>
-                    <span>{trans("fully")}</span>
+                    <span>{t("milkProducts")}</span>
+                    <span>{t("fully")}</span>
                     <span><Arrow/></span>
                 </div>
 
                 <StoreCard products={sales}/>
 
                 <div className="store-production-cards-title">
-                    <span>{trans("fruitsVegetables")}</span>
-                    <span>{trans("fully")}</span>
+                    <span>{t("fruitsVegetables")}</span>
+                    <span>{t("fully")}</span>
                     <span><Arrow/></span>
                 </div>
 

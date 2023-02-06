@@ -7,10 +7,10 @@ import {ReactComponent as Youtube} from "../../assets/images/svg/youtube.svg";
 import {Link} from "react-router-dom";
 import {useEffect} from "react";
 import Map from "../../assets/images/png/mini-map.png";
-import translation from "../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 function Index() {
-    const {trans} = translation();
+    const {t} = useTranslation();
     useEffect(() => {
         scrollToTop();
     }, []);
@@ -36,29 +36,29 @@ function Index() {
                                 <ul className="footer-menu">
 
                                     <li className='footer-list-item'>
-                                        <Link onClick={scrollToTop} to="/">{trans("main")}</Link>
+                                        <Link onClick={scrollToTop} to="/">{t("main")}</Link>
                                     </li>
                                     <li className='footer-list-item'>
-                                        <Link onClick={scrollToTop} to="/news">{trans("news")}</Link>
+                                        <Link onClick={scrollToTop} to="/news">{t("news")}</Link>
                                     </li>
                                     <li className='footer-list-item'>
-                                        <Link onClick={scrollToTop} to="/about-us">{trans("aboutUs")}</Link>
+                                        <Link onClick={scrollToTop} to="/about-us">{t("aboutUs")}</Link>
                                     </li>
 
                                 </ul>
 
                                 <ul className="footer-menu">
 
-                                    <li className='footer-list-item'>{trans("municipality")}</li>
-                                    <li className='footer-list-item'><Link to="#">{trans("termsConditions")}</Link></li>
+                                    <li className='footer-list-item'>{t("municipality")}</li>
+                                    <li className='footer-list-item'><Link to="#">{t("termsConditions")}</Link></li>
                                     <li className='footer-list-item'><Link onClick={scrollToTop}
-                                                                           to="/contact">{trans("contact")}</Link></li>
+                                                                           to="/contact">{t("contact")}</Link></li>
 
                                 </ul>
                             </div>
                             <ul className="footer-phone-number">
                                 <a href="tel:+995551250026">
-                                    <li>{trans("contactUs")}<h2>+995 551 25 00 26</h2></li>
+                                    <li>{t("contactUs")}<h2>+995 551 25 00 26</h2></li>
                                 </a>
                                 <ul className="footer-social-media">
                                     <li><Facebook/></li>
@@ -80,7 +80,7 @@ function Index() {
 
                         <ul className="footer-address">
                             <li className='footer-list-item'>
-                                {trans("address")}
+                                {t("address")}
                             </li>
                             <li className="footer-list-item">
                                 <a href="mailto:agrocentribolnisi@gmail.com">agrocentribolnisi@gmail.com</a>

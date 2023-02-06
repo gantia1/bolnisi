@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import AdminNews from "./components/admin/news";
 import AdminContact from "./components/admin/contact";
 import AddContact from "./components/admin/contact/add";
@@ -14,11 +14,29 @@ import OnlineStore from "./components/pages/online-store";
 import NewsDetail from "./components/pages/news-detail";
 import Store from "./components/pages/store";
 import Product from "./components/pages/product";
+import {useLayoutEffect} from "react";
+import {useTranslation} from "react-i18next";
+import {removeLngPrefix} from "./components/i18n/i18n";
 
 
 function App() {
+    const {i18n, i18n: {language}} = useTranslation();
+
+    useLayoutEffect(() => {
+        const currentPathname = window.location.href.replace(
+            window.location.origin,
+            ''
+        );
+
+        const newPathname = `/${language}${removeLngPrefix(currentPathname)}`;
+
+        if (currentPathname !== newPathname) {
+            window.history.replaceState({}, '', newPathname);
+        }
+    }, [language, i18n])
+
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Router basename={`/${language}`}>
             <Routes>
                 <Route
                     path="/"
@@ -83,7 +101,7 @@ function App() {
 
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </Router>
     );
 }
 

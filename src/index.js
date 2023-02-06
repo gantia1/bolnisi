@@ -7,13 +7,10 @@ import "./assets/fonts/HelveticaNeueLTGEO-55Roman.otf";
 import "./assets/fonts/HelveticaNeueLTGEO-MT-55Roman.ttf";
 import "./assets/fonts/Helvetica-Neue-LT-Com-65-Medium.ttf";
 import "./assets/fonts/HelveticaNeueLTGEO-75Bold.otf";
-import {TranslationContextProvider} from "./contexts/TranslationContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <TranslationContextProvider>
           <App />
-      </TranslationContextProvider>
   </React.StrictMode>
 );

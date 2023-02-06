@@ -15,12 +15,12 @@ import ContactCardThird from "../../../assets/images/png/contact-card-3.png";
 import {ReactComponent as LeftLeaf} from "../../../assets/images/svg/bottom-right-leaf.svg";
 import React, {useState} from "react";
 import SuccessPopup from "../../success-popup";
-import translation from "../../../language/useTranslation";
+import {useTranslation} from "react-i18next";
 
 
 function Index() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const {trans} = translation();
+    const {t} = useTranslation();
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -63,8 +63,8 @@ function Index() {
                         </div>
                         <div className="contact-info">
                             <ul>
-                                <li><strong>{trans("contactInfo")}</strong></li>
-                                <li>{trans("address")}</li>
+                                <li><strong>{t("contactInfo")}</strong></li>
+                                <li>{t("address")}</li>
                                 <a href="tel:+995551250026">
 
                                     <li><Call/>+995 551 25 00 26</li>
@@ -86,7 +86,7 @@ function Index() {
                     <div className="contact-right-side">
 
                         <div className="contact-right-side-title">
-                            <span>{trans("contactUs")}</span>
+                            <span>{t("contactUs")}</span>
                         </div>
 
                         <div className="contact-right-leaf">
@@ -105,7 +105,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder={trans("nameLastname")}
+                                    placeholder={t("nameLastname")}
                                 />
                             </Form.Item>
                             <Form.Item
@@ -119,7 +119,7 @@ function Index() {
                                 ]}>
                                 <InputNumber
                                     bordered={false}
-                                    placeholder={trans("phoneNumber")}
+                                    placeholder={t("phoneNumber")}
                                     style={{
                                         width: '100%',
                                     }}
@@ -131,7 +131,7 @@ function Index() {
                             >
                                 <Input
                                     bordered={false}
-                                    placeholder={trans("email")}
+                                    placeholder={t("email")}
                                 />
                             </Form.Item>
 
@@ -146,7 +146,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder={trans("subjectMatter")}
+                                    placeholder={t("subjectMatter")}
                                 />
                             </Form.Item>
 
@@ -155,13 +155,13 @@ function Index() {
                             >
                                 <TextArea rows={4}
                                           bordered={false}
-                                          placeholder={trans("message")}
+                                          placeholder={t("message")}
                                 />
                             </Form.Item>
 
                             <Form.Item>
                                 <button className="contact-form-button" onClick={showModal}>
-                                    {trans("send")}
+                                    {t("send")}
                                 </button>
                             </Form.Item>
                         </Form>
@@ -171,7 +171,7 @@ function Index() {
                 </div>
 
                 <div className="contact-cards-title">
-                    <span>{trans("contactInfo")}</span>
+                    <span>{t("contactInfo")}</span>
                 </div>
 
                 <div className="contact-cards">
@@ -225,7 +225,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder={trans("nameLastname")}
+                                    placeholder={t("nameLastname")}
                                 />
                             </Form.Item>
                             <Form.Item
@@ -239,7 +239,7 @@ function Index() {
                                 ]}>
                                 <InputNumber
                                     bordered={false}
-                                    placeholder={trans("phoneNumber")}
+                                    placeholder={t("phoneNumber")}
                                     style={{
                                         width: '100%',
                                     }}
@@ -251,7 +251,7 @@ function Index() {
                             >
                                 <Input
                                     bordered={false}
-                                    placeholder={trans("email")}
+                                    placeholder={t("email")}
                                 />
                             </Form.Item>
 
@@ -266,7 +266,7 @@ function Index() {
                                 ]}>
                                 <Input
                                     bordered={false}
-                                    placeholder={trans("subjectMatter")}
+                                    placeholder={t("subjectMatter")}
                                 />
                             </Form.Item>
 
@@ -275,13 +275,13 @@ function Index() {
                             >
                                 <TextArea rows={4}
                                           bordered={false}
-                                          placeholder={trans("message")}
+                                          placeholder={t("message")}
                                 />
                             </Form.Item>
 
                             <Form.Item>
                                 <button className="contact-form-button" onClick={showModal}>
-                                    {trans("send")}
+                                    {t("send")}
                                 </button>
                             </Form.Item>
                         </Form>
