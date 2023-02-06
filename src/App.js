@@ -36,7 +36,7 @@ function App() {
     }, [language, i18n])
 
     return (
-        <Router basename={`/${language}/${process.env.PUBLIC_URL}`}>
+        <Router basename={`/${language}`}>
             <Routes>
                 <Route
                     path="/"
