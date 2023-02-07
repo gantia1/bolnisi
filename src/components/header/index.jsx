@@ -49,9 +49,9 @@ function Index() {
     };
 
     const languages = {
-        ka: <span onClick={switcher('ka/bolnisi')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
-        en: <span onClick={switcher('en/bolnisi')}><img src={En} alt="en"/> <p> English </p></span>,
-        ru: <span onClick={switcher('ru/bolnisi')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
+        ka: <span onClick={switcher('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
+        en: <span onClick={switcher('en')}><img src={En} alt="en"/> <p> English </p></span>,
+        ru: <span onClick={switcher('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
     }
 
     return (
