@@ -7,10 +7,12 @@ import "./assets/fonts/HelveticaNeueLTGEO-55Roman.otf";
 import "./assets/fonts/HelveticaNeueLTGEO-MT-55Roman.ttf";
 import "./assets/fonts/Helvetica-Neue-LT-Com-65-Medium.ttf";
 import "./assets/fonts/HelveticaNeueLTGEO-75Bold.otf";
+import "../src/components/i18n/i18n";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-          <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>
 );

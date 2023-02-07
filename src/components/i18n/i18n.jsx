@@ -1,7 +1,6 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from "i18next-browser-languagedetector";
-
 import translationKA from "../../assets/locales/ka/translation.json";
 import translationEN from "../../assets/locales/en/translation.json";
 import translationRU from "../../assets/locales/ru/translation.json";
@@ -43,12 +42,15 @@ export const getLngFromUrl = pathname => {
 const lng = getLngFromUrl(window.location.pathname) || i18n.language;
 
 i18n.use(LanguageDetector).use(initReactI18next).init({
-    fallbackLng: "ka",
+    supportedLngs: ['ka', 'en', 'ru'],
+    fallbackLng: 'ka',
     resources,
     detection: {
         caches: ['cookie']
     },
+    interpolation: {
+        escapeValue: false,
+    },
     lng
 })
-document.documentElement.lang = i18n.language
-
+export default i18n;

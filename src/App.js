@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import AdminNews from "./components/admin/news";
 import AdminContact from "./components/admin/contact";
 import AddContact from "./components/admin/contact/add";
@@ -35,8 +35,9 @@ function App() {
         }
     }, [language, i18n])
 
+
     return (
-        <Router basename={process.env.PUBLIC_URL`/${language}`}>
+        <HashRouter>
             <Routes>
                 <Route
                     path="/"
@@ -101,7 +102,7 @@ function App() {
 
                 </Route>
             </Routes>
-        </Router>
+        </HashRouter>
     );
 }
 
