@@ -12,7 +12,7 @@ import {useState} from "react";
 import Cart from "../cart";
 import {useTranslation} from "react-i18next";
 
-const langs = ['ka', 'en', 'ru']
+const langs = ['ka', 'en', 'ru'];
 
 function Index(props) {
 
@@ -24,10 +24,9 @@ function Index(props) {
 
     const switcher = (lng) => () => {
         if (lng !== language) {
-            i18n.changeLanguage(lng)
-            window.location.replace(
+            i18n.changeLanguage(lng).then(() => window.location.replace(
                 `/${lng}${pathname}${search}${hash}`
-            )
+            ))
         }
     }
     const showModal = () => {
@@ -57,6 +56,7 @@ function Index(props) {
                                 if (lang !== language) {
                                     return languages[lang]
                                 }
+                                return false
                             })}
                         </div>
                     </div>

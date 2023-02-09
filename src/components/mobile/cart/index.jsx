@@ -56,8 +56,8 @@ function Index(props) {
                         ))}
                     </div>
                     <div className="mobile-cart-sum">
-                        <div className="mobile-cart-product-sum"><span>3 პროდუქტი, სულ</span></div>
-                        <div className="mobile-cart-price-sum"><span>81₾</span></div>
+                        <div className="mobile-cart-product-sum"><span>4 პროდუქტი, სულ</span></div>
+                        <div className="mobile-cart-price-sum"><span>11₾</span></div>
                     </div>
                     <div className="mobile-cart-button">
                         <span>გადახდა</span>

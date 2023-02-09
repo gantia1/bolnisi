@@ -11,12 +11,13 @@ import Slider from "../slider";
 import {ReactComponent as HeaderToggle} from "../../assets/images/svg/toggle.svg";
 import {ReactComponent as Store} from "../../assets/images/svg/store.svg";
 import MobileMenu from "../mobile/menu";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Logo from "../../assets/images/png/menu-logo.png";
 import MenuLogo from "../../assets/images/png/menu-text-img.png";
 import Registration from "../registration";
-import Cart from "../mobile/cart";
+import MobileCart from "../mobile/cart";
 import {useTranslation} from "react-i18next";
+import Cart from "../cart";
 
 const langs = ['ka', 'en', 'ru']
 
@@ -25,6 +26,7 @@ function Index() {
     const [open, setOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpenCart, setIsOpenCart] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
 
     const {t, i18n, i18n: {language}} = useTranslation();
 
@@ -32,10 +34,9 @@ function Index() {
 
     const switcher = (lng) => () => {
         if (lng !== language) {
-            i18n.changeLanguage(lng)
-            window.location.replace(
+            i18n.changeLanguage(lng).then(() => window.location.replace(
                 `/${lng}${pathname}${search}${hash}`
-            )
+            ))
         }
     }
     const showDrawer = () => {
@@ -48,12 +49,30 @@ function Index() {
         setIsOpenCart(true);
     };
 
+
     const languages = {
         ka: <span onClick={switcher('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
         en: <span onClick={switcher('en')}><img src={En} alt="en"/> <p> English </p></span>,
         ru: <span onClick={switcher('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
     }
 
+    function useOutsideAlerter(ref) {
+        useEffect(() => {
+            function handleClickOutside(event) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setOpenCart(false);
+                }
+            }
+
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);
     return (
 
         <>
@@ -78,24 +97,33 @@ function Index() {
                                     if (lang !== language) {
                                         return languages[lang]
                                     }
+                                    return false
                                 })}
                             </div>
                         </div>
                         <div className="header-nav-list">
-                            <span className="header-account" onClick={showModal}><Account/></span>
-                            <span><Link to="#"><Shopping/></Link></span>
-                        </div>
-                        <Link to="/store">
-                            <div className="header-store">
-                                <span><Store/>{t("shop")}</span>
+                            <div className="header-account" onClick={showModal}><Account/></div>
+                            <div className="header-nav-cart-container" ref={wrapperRef}>
+                                <div className={`header-nav-cart ${openCart ? "color" : ""}`}
+                                     onClick={() => setOpenCart(!openCart)}>
+                                    <span><Shopping/></span>
+                                    <span className="header-cart-quantity">2</span>
+                                </div>
+                                <Cart open={openCart} close={() => setOpenCart(false)}/>
                             </div>
-                        </Link>
-                    </div>
 
+                        </div>
+                        <div className="header-store">
+                            <Link to="/store">
+                                <span><Store/>{t("shop")}</span>
+                            </Link>
+                        </div>
+                    </div>
                     <div className="header-toggle">
                         <HeaderToggle onClick={showDrawer}/>
                     </div>
                 </div>
+
                 <div className="pages-menu menu-container font-face-hn">
                     <ul>
                         <li><NavLink to="/">{t("main")}</NavLink></li>
@@ -118,7 +146,7 @@ function Index() {
                         <Link to="/"><img src={Logo} alt="menu-logo"/></Link>
                     </div>
                     <div
-                        className={location.pathname === "/online-store" ? 'pages-menu-text-logo-hide' : 'pages-menu-text-logo'}>
+                        className={location.pathname === "/online-store" || "/store" ? 'pages-menu-text-logo-hide' : 'pages-menu-text-logo'}>
                         <img src={MenuLogo} alt="menu-logo"/>
                     </div>
                     <div className="pages-mobile-menu-shopping" onClick={showCart}>
@@ -130,7 +158,7 @@ function Index() {
             }
             <MobileMenu open={open} close={() => setOpen(false)}/>
             <Registration open={isModalOpen} close={() => setIsModalOpen(false)}/>
-            <Cart open={isOpenCart} close={() => setIsOpenCart(false)}/>
+            <MobileCart open={isOpenCart} close={() => setIsOpenCart(false)}/>
         </>
     );
 }

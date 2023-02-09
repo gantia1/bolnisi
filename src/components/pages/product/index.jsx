@@ -1,4 +1,4 @@
-import ProductImage from "../../../assets/images/png/offers-img.png";
+import ProductImage from "../../../assets/images/png/news-card.png";
 import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {ReactComponent as Addition} from "../../../assets/images/svg/addition.svg";
@@ -13,6 +13,7 @@ import StoreCard from "../../store-card";
 import salesImage from "../../../assets/images/png/offers-img.png";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import {ReactComponent as Arrow} from "../../../assets/images/svg/arrow.svg";
 
 const products = [
     {
@@ -80,7 +81,9 @@ function Index() {
         <div className="product-container">
 
             <div className="product">
-
+                <div className="back-to-store">
+                    <Link to="/store"><span><Arrow/>უკან</span></Link>
+                </div>
                 <div className="product-image">
 
 

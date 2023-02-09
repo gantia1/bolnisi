@@ -1,8 +1,7 @@
 {
-  "homepage": "https://gantia1.github.io/bolnisi",
   "name": "bolnisi",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -10,7 +9,8 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.0.6",
     "dayjs": "^1.11.7",
-    "gh-pages": "^5.0.0",
+    "i18n": "^0.15.1",
+    "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "^7.0.1",
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
@@ -26,8 +26,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

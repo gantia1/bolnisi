@@ -13,7 +13,7 @@ import {useTranslation} from "react-i18next";
 
 function Index() {
     const {t} = useTranslation();
-
+    
     return (
 
         <div className="menu-container">

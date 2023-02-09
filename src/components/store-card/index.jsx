@@ -26,7 +26,7 @@ function Index({products}) {
 
     return (
         <div className="store-production-cards">
-            {favorites.map((product,) => (
+            {favorites.map((product) => (
                 <div
                     key={product.id}
                     className="store-production-card"
