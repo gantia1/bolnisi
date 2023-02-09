@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bolnisi/static/css/main.5ba215dc.css",
+    "main.css": "/bolnisi/static/css/main.6cb598d2.css",
     "main.js": "/bolnisi/static/js/main.84004087.js",
     "static/media/news-card.png": "/bolnisi/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/static/media/slide-img.c92c80a463b1612a583d.png",
@@ -85,11 +85,11 @@
     "static/media/arrow.svg": "/bolnisi/static/media/arrow.f8e1235fc441b96b8d3ba2da91861ad7.svg",
     "static/media/card-hover.svg": "/bolnisi/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
-    "main.5ba215dc.css.map": "/bolnisi/static/css/main.5ba215dc.css.map",
+    "main.6cb598d2.css.map": "/bolnisi/static/css/main.6cb598d2.css.map",
     "main.84004087.js.map": "/bolnisi/static/js/main.84004087.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ba215dc.css",
+    "static/css/main.6cb598d2.css",
     "static/js/main.84004087.js"
   ]
 }
