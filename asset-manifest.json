@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bolnisi/static/css/main.7199ee61.css",
-    "main.js": "/bolnisi/static/js/main.04527d0d.js",
+    "main.css": "/bolnisi/static/css/main.5ba215dc.css",
+    "main.js": "/bolnisi/static/js/main.84004087.js",
     "static/media/news-card.png": "/bolnisi/static/media/news-card.efb6c5eca616b01e0c4b.png",
     "static/media/slide-img.png": "/bolnisi/static/media/slide-img.c92c80a463b1612a583d.png",
     "static/media/news-card-1.png": "/bolnisi/static/media/news-card-1.a9a52a0af885f51c548d.png",
@@ -63,6 +63,7 @@
     "static/media/sms.svg": "/bolnisi/static/media/sms.6ad55116fc4c590fed024a82c5b03f04.svg",
     "static/media/small-leaf-top.svg": "/bolnisi/static/media/small-leaf-top.5fe10646941a243bdf70.svg",
     "static/media/all.svg": "/bolnisi/static/media/all.6ee19c399fab871b70ae0e99668e5d2e.svg",
+    "static/media/delete.svg": "/bolnisi/static/media/delete.f22bf6da7e6b142f76b76b85e0d6b3d1.svg",
     "static/media/wine-bar.svg": "/bolnisi/static/media/wine-bar.485ae6b0002e1d3c665ad497b4ee066a.svg",
     "static/media/youtube.svg": "/bolnisi/static/media/youtube.2f902bc12344f59951ae9eaa1c39c459.svg",
     "static/media/announcement.svg": "/bolnisi/static/media/announcement.ea258ca7685271cb9a9ac2c9d92d8cad.svg",
@@ -84,11 +85,11 @@
     "static/media/arrow.svg": "/bolnisi/static/media/arrow.f8e1235fc441b96b8d3ba2da91861ad7.svg",
     "static/media/card-hover.svg": "/bolnisi/static/media/card-hover.e8fed0ae582b298d05903eeb44c24352.svg",
     "static/media/yellow.svg": "/bolnisi/static/media/yellow.ba44f97e81be9ad8fd42461a0c552572.svg",
-    "main.7199ee61.css.map": "/bolnisi/static/css/main.7199ee61.css.map",
-    "main.04527d0d.js.map": "/bolnisi/static/js/main.04527d0d.js.map"
+    "main.5ba215dc.css.map": "/bolnisi/static/css/main.5ba215dc.css.map",
+    "main.84004087.js.map": "/bolnisi/static/js/main.84004087.js.map"
   },
   "entrypoints": [
-    "static/css/main.7199ee61.css",
-    "static/js/main.04527d0d.js"
+    "static/css/main.5ba215dc.css",
+    "static/js/main.84004087.js"
   ]
 }
