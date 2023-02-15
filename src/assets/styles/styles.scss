@@ -273,26 +273,30 @@ header {
 
   .header-store {
     margin-left: 52px;
-    font-size: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    min-width: 115px;
-    text-align: center;
-    font-family: $font-bold;
+    width: 175px;
 
-    span {
+
+    button {
+      min-width: 175px;
       padding: 14px 27px;
       background-color: $yellow;
       border-radius: 24px;
+      border: none;
+      text-align: center;
+      font-family: $font-bold;
+      color: $dark-grey;
+      font-size: 20px;
+      cursor: pointer;
+
+      svg {
+        vertical-align: bottom;
+        width: 21px;
+        height: 25px;
+        margin-right: 9px;
+      }
     }
 
-    svg {
-      transition: ease-out 30s;
-      vertical-align: bottom;
-      width: 21px;
-      height: 25px;
-      margin-right: 9px;
-    }
+
   }
 }
 
@@ -682,22 +686,24 @@ header {
     font-size: 20px;
     margin: 45px 0 30px;
     color: $dark-green;
-    inline-size: 215px;
+    inline-size: fit-content;
     font-family: $font-55-roman;
 
     svg {
       rotate: 270deg;
-      vertical-align: middle;
+      margin-right: 10px;
+      transform: translateX(3px);
     }
 
     .all-news {
       position: relative;
-
-      .all-news-arrow {
-        position: absolute;
-        top: 0;
-        transform: translateY(-4px);
-      }
+      align-items: center;
+      display: flex;
+      //.all-news-arrow {
+      //  position: absolute;
+      //  top: 0;
+      //  transform: translateY(-4px);
+      //}
 
       .all-news-text {
         padding-left: 20px;
@@ -991,6 +997,10 @@ footer {
   .footer-list-item {
     font-size: 16px;
     margin-bottom: 20px;
+
+    p {
+      margin: 0;
+    }
   }
 
   .footer-map {
@@ -1050,24 +1060,26 @@ footer {
   .footer-social-media {
     display: flex;
     padding-inline-start: 0;
-
-    svg {
-      margin-right: 12px;
-    }
+    align-items: center;
+    column-gap: 12px;
   }
 
   .footer-address {
-    white-space: pre-wrap;
     padding-left: 0 !important;
-
-    li:first-child {
-      inline-size: 210px;
-      word-break: break-all;
-    }
   }
 }
 
 //pages
+//municipality
+.municipality-container {
+  @extend %container;
+}
+
+//terms-conditions
+.terms-conditions-container {
+  @extend %container;
+}
+
 //contact
 .pages-container {
   justify-content: space-between;
@@ -1209,6 +1221,7 @@ footer {
       color: $white;
       font-size: 20px;
       font-family: $font-bold;
+      min-width: 212px;
     }
   }
 
@@ -1400,7 +1413,7 @@ footer {
   }
 
   .news-end-date-ka:after, .news-end-date-en:after, .news-end-date-ru:after {
-    content: "-მდე";
+    content: "- მდე";
     position: absolute;
     left: 42%;
     font-size: 14px;
@@ -1432,6 +1445,7 @@ footer {
       border-radius: 26px;
       padding: 11px 19px;
       outline: none;
+      max-width: 200px;
     }
 
     .news-today-calendar {
@@ -3203,12 +3217,6 @@ footer {
     .footer-list ul li {
       font-size: 14px;
     }
-
-    .footer-address {
-      li:first-child {
-        inline-size: 180px;
-      }
-    }
   }
 }
 
@@ -3745,7 +3753,7 @@ footer {
       flex-direction: column;
       align-items: start;
       gap: 0;
-      padding-left: 26px;
+      padding: 0 26px;
 
       ul {
         padding: 0;
@@ -3785,7 +3793,6 @@ footer {
 
     .footer-address {
       li:first-child {
-        inline-size: 185px;
         margin-bottom: 15px;
       }
     }
@@ -4250,12 +4257,26 @@ footer {
 //mobile menu drawer
 
 .mobile-menu {
-  .ant-drawer-header {
-    border: none;
+  .ant-drawer-wrapper-body {
+    display: block;
   }
 
-  .ant-drawer-wrapper-body {
+  .ant-drawer-header {
+    border: none;
     background-color: #85A44C;
+  }
+
+  .mobile-menu-list {
+    position: relative;
+    overflow: hidden;
+    background-color: #85A44C;
+  }
+
+  .mobile-menu-list:before {
+    content: url("../images/svg/mobile-menu.svg");
+    position: absolute;
+    bottom: -175px;
+    right: -200px;
   }
 
   .ant-drawer-header-title svg {
@@ -4267,12 +4288,6 @@ footer {
   .ant-drawer-header-title button {
     margin: 0;
     padding: 0;
-  }
-
-  .mobile-menu-background {
-    position: absolute;
-    bottom: -155px;
-    right: -150px;
   }
 
   .mobile-menu-list {
@@ -4456,18 +4471,6 @@ footer {
   }
 }
 
-.mobile-menu {
-  position: relative;
-  overflow: hidden !important;
-}
-
-.mobile-menu:before {
-  content: url("../images/svg/mobile-menu.svg");
-  position: absolute;
-  bottom: -175px;
-  right: -200px;
-}
-
 //header cart
 .header-cart-container.hide {
   transition: visibility .3s ease-out, opacity .3s ease-out;
@@ -4521,7 +4524,7 @@ footer {
   border-radius: 16px;
   background-color: $white;
   z-index: 1;
-  right: -221px;
+  right: -227px;
   transform: translateY(65px);
 
   .header-cart-items {
@@ -4600,10 +4603,6 @@ footer {
       display: flex;
       align-items: center;
 
-      svg {
-        margin-bottom: 10px;
-      }
-
       span:first-child, span:nth-child(3) {
         cursor: pointer;
       }
@@ -4634,7 +4633,6 @@ footer {
   }
 
   .ant-drawer-body {
-    //overflow-y: unset;
     overflow: unset;
   }
 

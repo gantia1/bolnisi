@@ -22,7 +22,8 @@ function Index(props) {
 
     const {pathname, search, hash} = useLocation();
 
-    const switcher = (lng) => () => {
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng)
         if (lng !== language) {
             i18n.changeLanguage(lng).then(() => window.location.replace(
                 `/${lng}${pathname}${search}${hash}`
@@ -36,9 +37,9 @@ function Index(props) {
         setIsOpenCart(true);
     };
     const languages = {
-        ka: <span onClick={switcher('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
-        en: <span onClick={switcher('en')}><img src={En} alt="en"/> <p> English </p></span>,
-        ru: <span onClick={switcher('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
+        ka: <span onClick={() => changeLanguage('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
+        en: <span onClick={() => changeLanguage('en')}><img src={En} alt="en"/> <p> English </p></span>,
+        ru: <span onClick={() => changeLanguage('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
     }
     return (
         <>

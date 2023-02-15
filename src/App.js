@@ -1,5 +1,5 @@
 import './App.css';
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import AdminNews from "./components/admin/news";
 import AdminContact from "./components/admin/contact";
 import AddContact from "./components/admin/contact/add";
@@ -14,32 +14,19 @@ import OnlineStore from "./components/pages/online-store";
 import NewsDetail from "./components/pages/news-detail";
 import Store from "./components/pages/store";
 import Product from "./components/pages/product";
-import {useLayoutEffect} from "react";
-import {useTranslation} from "react-i18next";
-import {removeLngPrefix} from "./components/i18n/i18n";
-
+import Municipality from "./components/pages/municipality";
+import TermsConditions from "./components/pages/terms-conditions";
+import i18n from "../src/components/i18n/i18n";
 
 function App() {
-    const {i18n, i18n: {language}} = useTranslation();
-
-    useLayoutEffect(() => {
-        const currentPathname = window.location.href.replace(
-            window.location.origin,
-            ''
-        );
-
-        const newPathname = `/${language}${removeLngPrefix(currentPathname)}`;
-
-        if (currentPathname !== newPathname) {
-            window.history.replaceState({}, '', newPathname);
-        }
-    }, [language, i18n])
-
+    const baseUrl = () => {
+        return (i18n.language === "ka" ? "" : "/" + i18n.language);
+    }
 
     return (
-        <HashRouter>
-            <Routes>
-                <Route
+        <Router basename={baseUrl()}>
+            < Routes>
+                < Route
                     path="/"
                     element={<Layout/>}
                 >
@@ -58,6 +45,14 @@ function App() {
                     <Route
                         path="/about-us"
                         element={<AboutUs/>}
+                    />
+                    <Route
+                        path={"/municipality"}
+                        element={<Municipality/>}
+                    />
+                    <Route
+                        path={"/terms-conditions"}
+                        element={<TermsConditions/>}
                     />
                     <Route
                         path="/store"
@@ -102,7 +97,7 @@ function App() {
 
                 </Route>
             </Routes>
-        </HashRouter>
+        </Router>
     );
 }
 

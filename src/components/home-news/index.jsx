@@ -78,8 +78,10 @@ function Index() {
                 <div className="home-all-news">
                     <Link to="/news">
                         <div className={"all-news"}>
-                            <div className={"all-news-arrow"}><Arrow/></div>
-                            <div className={"all-news-text"}>{t("allNews")}</div>
+                            {/*<div className={"all-news-arrow"}></div>*/}
+                            {/*<div className={"all-news-text"}>{t("allNews")}</div>*/}
+                            <span><Arrow/></span>
+                            <span>{t("allNews")}</span>
                         </div>
                     </Link>
                 </div>

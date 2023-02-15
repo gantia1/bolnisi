@@ -5,7 +5,7 @@ import {ReactComponent as Linkedin} from "../../assets/images/svg/linkedin.svg";
 import {ReactComponent as Tiktok} from "../../assets/images/svg/tiktok.svg";
 import {ReactComponent as Youtube} from "../../assets/images/svg/youtube.svg";
 import {Link} from "react-router-dom";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import Map from "../../assets/images/png/mini-map.png";
 import {useTranslation} from "react-i18next";
 
@@ -49,10 +49,15 @@ function Index() {
 
                                 <ul className="footer-menu">
 
-                                    <li className='footer-list-item'>{t("municipality")}</li>
-                                    <li className='footer-list-item'><Link to="#">{t("termsConditions")}</Link></li>
-                                    <li className='footer-list-item'><Link onClick={scrollToTop}
-                                                                           to="/contact">{t("contact")}</Link></li>
+                                    <li className='footer-list-item'>
+                                        <Link to="/municipality" onClick={scrollToTop}>{t("municipality")}</Link>
+                                    </li>
+                                    <li className='footer-list-item'>
+                                        <Link to="/terms-conditions" onClick={scrollToTop}>{t("termsConditions")}</Link>
+                                    </li>
+                                    <li className='footer-list-item'>
+                                        <Link onClick={scrollToTop} to="/contact">{t("contact")}</Link>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -61,11 +66,16 @@ function Index() {
                                     <li>{t("contactUs")}<h2>+995 551 25 00 26</h2></li>
                                 </a>
                                 <ul className="footer-social-media">
-                                    <li><Facebook/></li>
-                                    <li><Instagram/></li>
-                                    <li><Linkedin/></li>
-                                    <li><Tiktok/></li>
-                                    <li><Youtube/></li>
+                                    <li><a href={"https://www.facebook.com/"} target="_blank"
+                                           rel="noreferrer"><Facebook/></a></li>
+                                    <li><a href={"https://www.instagram.com/"} target="_blank"
+                                           rel="noreferrer"><Instagram/></a></li>
+                                    <li><a href={"https://www.linkedin.com/"} target="_blank"
+                                           rel="noreferrer"><Linkedin/></a></li>
+                                    <li><a href={"https://www.tiktok.com/"} target="_blank"
+                                           rel="noreferrer"><Tiktok/></a></li>
+                                    <li><a href={"https://www.youtube.com/"} target="_blank" rel="noreferrer"><Youtube/></a>
+                                    </li>
                                 </ul>
                             </ul>
                         </div>
@@ -80,7 +90,9 @@ function Index() {
 
                         <ul className="footer-address">
                             <li className='footer-list-item'>
-                                {t("address")}
+                                {/*<span>{t("address")}</span>*/}
+                                <p>{t("address")}</p>
+                                <p>{t("addressCountry")}</p>
                             </li>
                             <li className="footer-list-item">
                                 <a href="mailto:agrocentribolnisi@gmail.com">agrocentribolnisi@gmail.com</a>

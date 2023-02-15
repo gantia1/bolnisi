@@ -19,7 +19,7 @@ import MobileCart from "../mobile/cart";
 import {useTranslation} from "react-i18next";
 import Cart from "../cart";
 
-const langs = ['ka', 'en', 'ru']
+const langs = ['ka', 'en', 'ru'];
 
 function Index() {
     const location = useLocation();
@@ -29,10 +29,10 @@ function Index() {
     const [openCart, setOpenCart] = useState(false);
 
     const {t, i18n, i18n: {language}} = useTranslation();
-
     const {pathname, search, hash} = useLocation();
 
-    const switcher = (lng) => () => {
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng)
         if (lng !== language) {
             i18n.changeLanguage(lng).then(() => window.location.replace(
                 `/${lng}${pathname}${search}${hash}`
@@ -51,9 +51,9 @@ function Index() {
 
 
     const languages = {
-        ka: <span onClick={switcher('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
-        en: <span onClick={switcher('en')}><img src={En} alt="en"/> <p> English </p></span>,
-        ru: <span onClick={switcher('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
+        ka: <span onClick={() => changeLanguage('ka')}><img src={Ka} alt="ka"/> <p> ქართული </p></span>,
+        en: <span onClick={() => changeLanguage('en')}><img src={En} alt="en"/> <p> English </p></span>,
+        ru: <span onClick={() => changeLanguage('ru')}><img src={Ru} alt="ru"/> <p> Русский </p></span>,
     }
 
     function useOutsideAlerter(ref) {
@@ -73,6 +73,7 @@ function Index() {
 
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef);
+
     return (
 
         <>
@@ -115,7 +116,7 @@ function Index() {
                         </div>
                         <div className="header-store">
                             <Link to="/store">
-                                <span><Store/>{t("shop")}</span>
+                                <button><Store/>{t("shop")}</button>
                             </Link>
                         </div>
                     </div>
@@ -154,8 +155,7 @@ function Index() {
                         <span><Shopping/></span>
                     </div>
                 </div>
-            )
-            }
+            )}
             <MobileMenu open={open} close={() => setOpen(false)}/>
             <Registration open={isModalOpen} close={() => setIsModalOpen(false)}/>
             <MobileCart open={isOpenCart} close={() => setIsOpenCart(false)}/>

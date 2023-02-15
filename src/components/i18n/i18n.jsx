@@ -18,39 +18,32 @@ const resources = {
     }
 }
 
-
-export const languages = Object.entries(resources).map(([lang]) => lang)
-
-export const removeLngPrefix = (pathname) => {
-    for (let lang of languages) {
-        if (pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`) {
-            return pathname.replace(`/${lang}`, '')
+i18n.on('languageChanged', function (lng) {
+    if (lng === i18n.options.fallbackLng[0]) {
+        if (window.location.pathname.includes('/' + i18n.options.fallbackLng[0])) {
+            const newUrl = window.location.pathname.replace('/' + i18n.options.fallbackLng[0], '')
+            window.location.replace(newUrl)
         }
     }
-    return pathname
-}
+})
 
-export const getLngFromUrl = pathname => {
-    for (let lang of languages) {
-        if (pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`) {
-            return lang;
-        }
-    }
-    return null;
-};
-
-const lng = getLngFromUrl(window.location.pathname) || i18n.language;
-
+i18n.on('languageChanged', (lng) => {
+    document.documentElement.setAttribute('lang', lng);
+})
 i18n.use(LanguageDetector).use(initReactI18next).init({
     supportedLngs: ['ka', 'en', 'ru'],
+    whitelist: ['ka', 'en', 'ru'],
     fallbackLng: 'ka',
     resources,
     detection: {
-        caches: ['cookie']
+        caches: ['cookie'],
+        order: ['path'],
+        lookupFromPathIndex: 0,
+        checkWhitelist: true
     },
     interpolation: {
         escapeValue: false,
+        formatSeparator: '.'
     },
-    lng
 })
 export default i18n;

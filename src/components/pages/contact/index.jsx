@@ -64,7 +64,7 @@ function Index() {
                         <div className="contact-info">
                             <ul>
                                 <li><strong>{t("contactInfo")}</strong></li>
-                                <li>{t("address")}</li>
+                                <li>{t("address")} {t("addressCountry")}</li>
                                 <a href="tel:+995551250026">
 
                                     <li><Call/>+995 551 25 00 26</li>
