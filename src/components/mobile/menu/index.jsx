@@ -1,5 +1,5 @@
 import {Drawer} from "antd";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {ReactComponent as Arrow} from "../../../assets/images/svg/arrow.svg";
 import {ReactComponent as LoginIcon} from "../../../assets/images/svg/account.svg";
 import {ReactComponent as Shopping} from "../../../assets/images/svg/shopping.svg";
@@ -20,15 +20,9 @@ function Index(props) {
     const [isOpenCart, setIsOpenCart] = useState(false);
     const {t, i18n, i18n: {language}} = useTranslation();
 
-    const {pathname, search, hash} = useLocation();
 
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng)
-        if (lng !== language) {
-            i18n.changeLanguage(lng).then(() => window.location.replace(
-                `/${lng}${pathname}${search}${hash}`
-            ))
-        }
     }
     const showModal = () => {
         setIsModalOpen(true);

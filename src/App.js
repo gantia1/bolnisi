@@ -16,15 +16,12 @@ import Store from "./components/pages/store";
 import Product from "./components/pages/product";
 import Municipality from "./components/pages/municipality";
 import TermsConditions from "./components/pages/terms-conditions";
-import i18n from "../src/components/i18n/i18n";
 
 function App() {
-    const baseUrl = () => {
-        return (i18n.language === "ka" ? "" : "/" + i18n.language);
-    }
+
 
     return (
-        <Router basename={baseUrl()}>
+        <Router>
             < Routes>
                 < Route
                     path="/"

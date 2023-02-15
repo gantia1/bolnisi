@@ -29,15 +29,9 @@ function Index() {
     const [openCart, setOpenCart] = useState(false);
 
     const {t, i18n, i18n: {language}} = useTranslation();
-    const {pathname, search, hash} = useLocation();
 
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng)
-        if (lng !== language) {
-            i18n.changeLanguage(lng).then(() => window.location.replace(
-                `/${lng}${pathname}${search}${hash}`
-            ))
-        }
     }
     const showDrawer = () => {
         setOpen(true);
